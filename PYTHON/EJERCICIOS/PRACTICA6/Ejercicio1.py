@@ -1,5 +1,5 @@
-from EJERCICIO1.ValidarUsuario import validarUsuario
-from EJERCICIO1.ValidarContraseña import validarContraseña
+from EJERCICIO1.ValidarUsuario1 import validarUsuario
+from EJERCICIO1.ValidarContraseña1 import validarContraseña
 
 usuario=input("Introduce usuario: ")
 validarUsuario(usuario)
