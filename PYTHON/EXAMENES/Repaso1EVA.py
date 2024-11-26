@@ -12,10 +12,8 @@ def estaEnLista(letra,lista):
         return [letra,-1]    
     
 def transformar(lista):
-    for i in lista:
-        tupla=()
-        tupla.append(i)
-        return (i)
+    tupla=list(map(tuple,lista))
+    return tupla
     
 
 lista=['a','e','i','o','u']
@@ -34,4 +32,7 @@ print(y)
 t=transformar(y)
          
 print(t)
+
+ordenar=t.sort()
+print(ordenar)
          
