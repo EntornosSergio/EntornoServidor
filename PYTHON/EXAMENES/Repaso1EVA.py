@@ -1,38 +1,35 @@
 def esVocal(letra):
-    if letra in ['a','e','i','o','u']:
-        return True
-    else:
-        return False
-    
-def estaEnLista(letra,lista):
-    if letra in lista:
-        pos=lista.index(letra)
-        return [letra,pos]
-    else:
-        return [letra,-1]    
-    
+    return letra in ['a', 'e', 'i', 'o', 'u']
+
+def estaEnLista(letra, lista):
+    i = 0
+    while i < len(lista):  
+        if lista[i][0] == letra:  
+            return i  
+        i += 1
+    return -1 
+
 def transformar(lista):
-    tupla=list(map(tuple,lista))
-    return tupla
-    
+    return list(map(tuple, lista))
 
-lista=['a','e','i','o','u']
-y=[]
-cadena=input("Ingresa una cadena: ").lower()
-for i in cadena:
-    x=esVocal(i)
-    if x == True:
-        print(i)
-        
-for i in cadena:
-    y.append(estaEnLista(i,lista))
-  
-print(y)
-  
-t=transformar(y)
-         
-print(t)
+lista = []
+cadena = input("Ingresa una cadena: ").lower()
 
-ordenar=t.sort()
-print(ordenar)
-         
+for letra in cadena:
+    if esVocal(letra):  
+        print("Es vocal " + letra)
+        index = estaEnLista(letra, lista)  
+        if index != -1:  
+            lista[index][1] += 1
+        else: 
+            lista.append([letra, 1])
+    else:
+        print(f"No es vocal {letra}")
+
+print("Lista:", lista)
+
+t = transformar(lista)
+print("Tuplas:", t)
+
+t.sort(key=lambda x: x[1], reverse=True)
+print("Ordenado de mayor a menor:", t)
