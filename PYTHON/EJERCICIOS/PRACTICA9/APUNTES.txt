@@ -1,0 +1,557 @@
+1. ¿Qué es una lista en Python?
+Una lista es una estructura de datos que permite almacenar múltiples elementos (de cualquier tipo: enteros, cadenas, objetos, otras listas, etc.) en un solo objeto. Las listas son ordenadas, mutables (puedes cambiarlas después de crearlas) y permiten elementos duplicados.
+
+Las listas se crean con corchetes [], y los elementos se separan por comas.
+
+Ejemplo:
+python
+Copiar código
+mi_lista = [1, 2, 3, 4, 5]
+2. Acceso a los elementos de una lista
+Cada elemento de una lista tiene un índice, que empieza desde 0. Puedes acceder a un elemento específico usando ese índice.
+
+Ejemplo:
+python
+Copiar código
+mi_lista = [10, 20, 30, 40, 50]
+
+print(mi_lista[0])  # Salida: 10
+print(mi_lista[3])  # Salida: 40
+Índices negativos:
+Si usas índices negativos, accedes a los elementos desde el final de la lista. El índice -1 se refiere al último elemento, -2 al penúltimo, etc.
+
+python
+Copiar código
+print(mi_lista[-1])  # Salida: 50 (último elemento)
+print(mi_lista[-2])  # Salida: 40 (penúltimo elemento)
+3. Modificar una lista
+Las listas son mutables, lo que significa que puedes modificar sus elementos después de haberlas creado.
+
+Ejemplo:
+python
+Copiar código
+mi_lista = [10, 20, 30, 40, 50]
+
+# Cambiar un valor en una posición específica
+mi_lista[1] = 25
+print(mi_lista)  # Salida: [10, 25, 30, 40, 50]
+
+# Modificar varios elementos
+mi_lista[2:4] = [35, 45]
+print(mi_lista)  # Salida: [10, 25, 35, 45, 50]
+4. Agregar elementos a una lista
+Existen varias formas de agregar elementos a una lista:
+
+append(): Añadir un elemento al final de la lista.
+python
+Copiar código
+mi_lista = [1, 2, 3]
+mi_lista.append(4)
+print(mi_lista)  # Salida: [1, 2, 3, 4]
+insert(): Insertar un elemento en una posición específica.
+python
+Copiar código
+mi_lista = [1, 2, 3]
+mi_lista.insert(1, "Nuevo")  # Inserta "Nuevo" en el índice 1
+print(mi_lista)  # Salida: [1, "Nuevo", 2, 3]
+extend(): Añadir múltiples elementos a la lista.
+python
+Copiar código
+mi_lista = [1, 2, 3]
+mi_lista.extend([4, 5, 6])
+print(mi_lista)  # Salida: [1, 2, 3, 4, 5, 6]
+5. Eliminar elementos de una lista
+También puedes eliminar elementos de una lista de varias maneras:
+
+remove(): Elimina el primer elemento que coincide con el valor dado.
+python
+Copiar código
+mi_lista = [1, 2, 3, 4, 2]
+mi_lista.remove(2)  # Elimina el primer "2"
+print(mi_lista)  # Salida: [1, 3, 4, 2]
+pop(): Elimina y devuelve el elemento en el índice dado (por defecto elimina el último elemento).
+python
+Copiar código
+mi_lista = [1, 2, 3]
+ultimo = mi_lista.pop()  # Elimina y devuelve el último elemento
+print(ultimo)  # Salida: 3
+print(mi_lista)  # Salida: [1, 2]
+del: Elimina un elemento en un índice específico o incluso toda la lista.
+python
+Copiar código
+mi_lista = [1, 2, 3]
+del mi_lista[0]  # Elimina el elemento en el índice 0
+print(mi_lista)  # Salida: [2, 3]
+
+# Eliminar toda la lista
+del mi_lista
+# print(mi_lista)  # Esto daría un error, porque la lista ya fue eliminada
+6. Operaciones con listas
+Longitud de una lista (len())
+Puedes obtener el número de elementos en una lista con la función len().
+
+python
+Copiar código
+mi_lista = [1, 2, 3, 4]
+print(len(mi_lista))  # Salida: 4
+Concatenación de listas (+)
+Puedes juntar dos o más listas usando el operador +.
+
+python
+Copiar código
+lista1 = [1, 2, 3]
+lista2 = [4, 5, 6]
+lista_combinada = lista1 + lista2
+print(lista_combinada)  # Salida: [1, 2, 3, 4, 5, 6]
+Repetir listas (*)
+Puedes repetir los elementos de una lista utilizando el operador *.
+
+python
+Copiar código
+mi_lista = [1, 2, 3]
+print(mi_lista * 2)  # Salida: [1, 2, 3, 1, 2, 3]
+7. Ordenar y buscar elementos en una lista
+Ordenar una lista (sort())
+Puedes ordenar los elementos de una lista con el método .sort(). Este método modifica la lista original.
+
+python
+Copiar código
+mi_lista = [3, 1, 2, 5, 4]
+mi_lista.sort()
+print(mi_lista)  # Salida: [1, 2, 3, 4, 5]
+Si quieres ordenar en orden descendente, puedes usar el argumento reverse=True:
+
+python
+Copiar código
+mi_lista.sort(reverse=True)
+print(mi_lista)  # Salida: [5, 4, 3, 2, 1]
+Buscar un elemento (in y index())
+Puedes comprobar si un elemento está en una lista con el operador in o encontrar su índice con .index().
+
+python
+Copiar código
+mi_lista = [1, 2, 3, 4]
+
+# Comprobar si un valor está en la lista
+print(3 in mi_lista)  # Salida: True
+
+# Obtener el índice de un valor
+print(mi_lista.index(3))  # Salida: 2
+8. Listas dentro de listas (listas anidadas)
+Las listas también pueden contener otras listas. Esto se llama listas anidadas.
+
+python
+Copiar código
+mi_lista_anidada = [[1, 2], [3, 4], [5, 6]]
+print(mi_lista_anidada[0])  # Salida: [1, 2]
+print(mi_lista_anidada[1][1])  # Salida: 4 (accediendo al segundo valor de la segunda sublista)
+9. Comprensiones de listas (List Comprehension)
+Las comprensiones de listas son una forma compacta y eficiente de crear listas. Permiten aplicar operaciones a los elementos de una lista de manera más concisa.
+
+Ejemplo:
+python
+Copiar código
+# Crear una lista con los cuadrados de los números del 1 al 5
+cuadrados = [x**2 for x in range(1, 6)]
+print(cuadrados)  # Salida: [1, 4, 9, 16, 25]
+10. Copiar una lista
+Puedes hacer una copia de una lista de las siguientes formas:
+
+Usando el método copy():
+python
+Copiar código
+mi_lista = [1, 2, 3]
+copia_lista = mi_lista.copy()
+Usando el operador de corte [:]:
+python
+Copiar código
+mi_lista = [1, 2, 3]
+copia_lista = mi_lista[:]
+Resumen de las operaciones comunes con listas
+Crear: mi_lista = [1, 2, 3]
+Acceder: mi_lista[0]
+Modificar: mi_lista[1] = 4
+Agregar: mi_lista.append(5), mi_lista.insert(1, "nuevo")
+Eliminar: mi_lista.remove(3), mi_lista.pop()
+Ordenar: mi_lista.sort()
+Buscar: 3 in mi_lista, mi_lista.index(3)
+Longitud: len(mi_lista)
+Concatenar: lista1 + lista2
+Repetir: mi_lista * 2
+List comprehension: [x**2 for x in range(1, 6)]
+
+
+1. ¿Qué es una tupla en Python?
+Una tupla es una estructura de datos ordenada y inmutable que puede almacenar elementos de diferentes tipos (enteros, cadenas, otros objetos, listas, etc.). Las tuplas se crean con paréntesis () y los elementos se separan por comas.
+
+Ejemplo de una tupla:
+python
+Copiar código
+mi_tupla = (1, 2, 3, 4, 5)
+2. Acceso a los elementos de una tupla
+Al igual que las listas, los elementos de una tupla tienen un índice, comenzando desde 0. Puedes acceder a los elementos de una tupla utilizando esos índices.
+
+Ejemplo:
+python
+Copiar código
+mi_tupla = (10, 20, 30, 40, 50)
+
+print(mi_tupla[0])  # Salida: 10
+print(mi_tupla[3])  # Salida: 40
+Índices negativos:
+Si usas índices negativos, accedes a los elementos desde el final de la tupla. El índice -1 se refiere al último elemento, -2 al penúltimo, etc.
+
+python
+Copiar código
+print(mi_tupla[-1])  # Salida: 50 (último elemento)
+print(mi_tupla[-2])  # Salida: 40 (penúltimo elemento)
+3. Modificar una tupla
+Las tuplas son inmutables, por lo que no puedes modificar sus elementos una vez que la has creado. Esto significa que no puedes hacer cosas como asignar un valor a un índice de la tupla ni eliminar o añadir elementos.
+
+Intentar modificar una tupla (esto dará error):
+python
+Copiar código
+mi_tupla = (10, 20, 30)
+# mi_tupla[1] = 25  # Esto dará un error: TypeError: 'tuple' object does not support item assignment
+4. Agregar elementos a una tupla
+Debido a que las tuplas son inmutables, no puedes agregar elementos a una tupla existente de la misma manera que con las listas. Sin embargo, puedes concatenar tuplas para crear una nueva tupla con elementos adicionales.
+
+Ejemplo de concatenación:
+python
+Copiar código
+tupla1 = (1, 2, 3)
+tupla2 = (4, 5)
+tupla_completa = tupla1 + tupla2  # Concatenamos las dos tuplas
+print(tupla_completa)  # Salida: (1, 2, 3, 4, 5)
+5. Eliminar elementos de una tupla
+No puedes eliminar elementos de una tupla directamente. Si necesitas eliminar elementos, la única opción es crear una nueva tupla sin esos elementos.
+
+Ejemplo de eliminación (creando una nueva tupla):
+python
+Copiar código
+mi_tupla = (10, 20, 30, 40, 50)
+# Para eliminar el 20 y el 30, por ejemplo:
+nueva_tupla = mi_tupla[:1] + mi_tupla[3:]
+print(nueva_tupla)  # Salida: (10, 40, 50)
+6. Operaciones con tuplas
+Aunque las tuplas son inmutables, hay algunas operaciones que puedes realizar con ellas.
+
+Longitud de una tupla (len())
+Puedes obtener el número de elementos de una tupla con la función len().
+
+python
+Copiar código
+mi_tupla = (1, 2, 3, 4)
+print(len(mi_tupla))  # Salida: 4
+Concatenación de tuplas (+)
+Al igual que las listas, puedes juntar dos o más tuplas usando el operador +.
+
+python
+Copiar código
+tupla1 = (1, 2, 3)
+tupla2 = (4, 5, 6)
+tupla_combinada = tupla1 + tupla2
+print(tupla_combinada)  # Salida: (1, 2, 3, 4, 5, 6)
+Repetir tuplas (*)
+Puedes repetir los elementos de una tupla utilizando el operador *.
+
+python
+Copiar código
+mi_tupla = (1, 2, 3)
+print(mi_tupla * 2)  # Salida: (1, 2, 3, 1, 2, 3)
+7. Buscar elementos en una tupla
+Aunque las tuplas no son tan manipulables como las listas, aún puedes buscar elementos dentro de ellas usando el operador in o encontrar el índice de un elemento con el método .index().
+
+Comprobar si un valor está en la tupla:
+python
+Copiar código
+mi_tupla = (10, 20, 30)
+print(20 in mi_tupla)  # Salida: True
+print(40 in mi_tupla)  # Salida: False
+Obtener el índice de un valor en la tupla:
+python
+Copiar código
+mi_tupla = (10, 20, 30, 20)
+print(mi_tupla.index(20))  # Salida: 1 (el primer índice donde aparece 20)
+8. Tuplas dentro de tuplas (tuplas anidadas)
+Al igual que las listas, las tuplas pueden contener otras tuplas. Esto se llama tuplas anidadas.
+
+python
+Copiar código
+mi_tupla_anidada = ((1, 2), (3, 4), (5, 6))
+print(mi_tupla_anidada[0])  # Salida: (1, 2)
+print(mi_tupla_anidada[1][1])  # Salida: 4 (accediendo al segundo valor de la segunda tupla)
+9. Comprensiones de tuplas
+Las comprensiones de tuplas no son posibles de la misma manera que las de listas, porque las tuplas son inmutables. Sin embargo, puedes usar una expresión generadora dentro de la función tuple() para crear una tupla de manera compacta.
+
+Ejemplo:
+python
+Copiar código
+# Crear una tupla con los cuadrados de los números del 1 al 5
+cuadrados = tuple(x**2 for x in range(1, 6))
+print(cuadrados)  # Salida: (1, 4, 9, 16, 25)
+10. Copiar una tupla
+Como las tuplas son inmutables, no necesitas hacer copias explícitas como con las listas, ya que no puedes modificar la tupla original. Si quieres realizar una copia, puedes hacer una nueva tupla con los mismos elementos:
+
+python
+Copiar código
+mi_tupla = (1, 2, 3)
+copia_tupla = mi_tupla
+print(copia_tupla)  # Salida: (1, 2, 3)
+Resumen de las operaciones comunes con tuplas
+Crear: mi_tupla = (1, 2, 3)
+Acceder: mi_tupla[0]
+Concatenar: tupla1 + tupla2
+Repetir: mi_tupla * 2
+Buscar: 20 in mi_tupla, mi_tupla.index(20)
+Longitud: len(mi_tupla)
+Tuplas anidadas: ((1, 2), (3, 4))
+Tupla desde expresión generadora: tuple(x**2 for x in range(1, 6))
+
+
+
+¿Qué es el Slicing (Rebanado)?
+El slicing te permite acceder a una porción de una lista, tupla o cadena usando una notación especial: inicio:fin. La idea básica es que defines un rango de índices dentro de una secuencia (como una lista) para obtener una sublista (o subcadena) que comienza en el índice inicio y termina en el índice fin.
+
+Sintaxis general del slicing
+python
+Copiar código
+secuencia[inicio:fin]
+inicio: El índice donde empieza la rebanada (es decir, el primer elemento incluido en el resultado). Si no se especifica, empieza desde el principio de la secuencia (índice 0).
+fin: El índice donde termina la rebanada (pero no se incluye este índice). Si no se especifica, la rebanada irá hasta el final de la secuencia.
+Ejemplo básico:
+python
+Copiar código
+mi_lista = [10, 20, 30, 40, 50]
+
+# Rebanada desde el índice 1 hasta el 3 (no incluye el 3)
+sub_lista = mi_lista[1:3]
+print(sub_lista)  # Salida: [20, 30]
+En este ejemplo:
+
+El índice 1 es el inicio (incluido en el resultado).
+El índice 3 es el fin, pero no se incluye.
+Variaciones del slicing
+1. Desde el inicio hasta un índice específico: [:n]
+Si no pones nada antes de los dos puntos :, Python entiende que quieres empezar desde el inicio de la secuencia.
+
+python
+Copiar código
+mi_lista = [10, 20, 30, 40, 50]
+
+# Rebanada desde el inicio hasta el índice 2 (no incluye el 2)
+sub_lista = mi_lista[:3]
+print(sub_lista)  # Salida: [10, 20, 30]
+Aquí, el :3 significa que queremos todo desde el principio hasta el índice 3 (sin incluirlo).
+
+2. Desde un índice específico hasta el final: [n:]
+Si no pones nada después de los dos puntos :, Python entiende que quieres cortar hasta el final de la secuencia.
+
+python
+Copiar código
+mi_lista = [10, 20, 30, 40, 50]
+
+# Rebanada desde el índice 2 hasta el final
+sub_lista = mi_lista[2:]
+print(sub_lista)  # Salida: [30, 40, 50]
+Aquí, el 2: significa que queremos todo desde el índice 2 hasta el final de la lista.
+
+3. Rebanadas con índices negativos
+Python también permite índices negativos para acceder a los elementos desde el final de la secuencia. El índice -1 es el último elemento, -2 es el penúltimo, y así sucesivamente.
+
+python
+Copiar código
+mi_lista = [10, 20, 30, 40, 50]
+
+# Rebanada desde el índice -3 hasta el final
+sub_lista = mi_lista[-3:]
+print(sub_lista)  # Salida: [30, 40, 50]
+Aquí, el -3: significa "comienza en el tercer elemento desde el final hasta el final de la lista".
+
+4. Rebanadas con un paso: [inicio:fin:paso]
+Puedes agregar un paso (también llamado "step") que indica cuántos elementos quieres saltarte mientras haces la rebanada. Esto se escribe después de los dos puntos.
+
+python
+Copiar código
+mi_lista = [10, 20, 30, 40, 50]
+
+# Rebanada desde el índice 0 hasta el 4, pero con un paso de 2
+sub_lista = mi_lista[0:5:2]
+print(sub_lista)  # Salida: [10, 30, 50]
+En este ejemplo:
+
+El 0:5:2 significa "tomar los elementos de índice 0 a 4 (sin incluir el 5) pero saltándote uno".
+Resultado: [10, 30, 50], porque toma el primer, tercer y quinto elementos.
+Resumiendo las variaciones de slicing
+secuencia[inicio:fin]: Desde el índice inicio hasta el índice fin (sin incluirlo).
+secuencia[:fin]: Desde el principio hasta el índice fin (sin incluirlo).
+secuencia[inicio:]: Desde el índice inicio hasta el final.
+secuencia[-n:]: Desde el n-ésimo elemento desde el final hasta el final.
+secuencia[inicio:fin:paso]: Desde el índice inicio hasta el índice fin (sin incluirlo), tomando cada paso-ésimo elemento.
+Ejemplo con varias combinaciones:
+python
+Copiar código
+mi_lista = [10, 20, 30, 40, 50, 60, 70]
+
+# Tomar del índice 1 al 5, con un paso de 2
+sub_lista = mi_lista[1:6:2]
+print(sub_lista)  # Salida: [20, 40, 60]
+Aquí:
+
+Comienza en el índice 1 (20) y termina antes del índice 6 (sin incluir el 6).
+Toma un paso de 2, es decir, toma los elementos en las posiciones 1, 3 y 5 (20, 40 y 60).
+Casos especiales:
+1. Obtener toda la lista con slicing:
+Puedes obtener toda la lista simplemente usando [:] sin especificar índices de inicio ni fin.
+
+python
+Copiar código
+mi_lista = [10, 20, 30, 40, 50]
+toda_lista = mi_lista[:]  # Esto devuelve una copia de la lista
+print(toda_lista)  # Salida: [10, 20, 30, 40, 50]
+2. Usar slicing para invertir una secuencia:
+Si pones un paso de -1, puedes invertir una lista o cadena.
+
+python
+Copiar código
+mi_lista = [10, 20, 30, 40, 50]
+lista_invertida = mi_lista[::-1]
+print(lista_invertida)  # Salida: [50, 40, 30, 20, 10]
+Resumen de la sintaxis de slicing:
+[inicio:fin]: Sublista desde inicio hasta fin - 1.
+[:fin]: Sublista desde el inicio hasta fin - 1.
+[inicio:]: Sublista desde inicio hasta el final.
+[inicio:fin:paso]: Sublista desde inicio hasta fin - 1, con un paso de paso.
+[::-1]: Sublista invertida.
+
+
+
+1. Función map():
+Objetivo: Aplicar una función a cada elemento de un iterable (como una lista, tupla, etc.) y devolver un iterable con los resultados.
+
+Cuándo usarla:
+Cuando necesitas transformar todos los elementos de un iterable aplicando una función a cada uno de ellos.
+La función que pases como argumento debe retornar un valor para cada elemento.
+Ejemplo de uso de map():
+Supongamos que tienes una lista de números y deseas obtener una lista con sus cuadrados:
+
+python
+Copiar código
+numeros = [1, 2, 3, 4, 5]
+cuadrados = map(lambda x: x ** 2, numeros)
+print(list(cuadrados))  # [1, 4, 9, 16, 25]
+En este caso, map() toma cada número y lo eleva al cuadrado, produciendo un nuevo iterable con los resultados.
+
+2. Función filter():
+Objetivo: Filtrar los elementos de un iterable según una condición. La función debe devolver True o False, y solo los elementos para los que la función devuelva True se incluirán en el resultado.
+
+Cuándo usarla:
+Cuando necesitas seleccionar solo algunos elementos de un iterable, basándote en una condición.
+La función que pases como argumento debe devolver un valor booleano (True o False) indicando si el elemento debe ser incluido en el resultado.
+Ejemplo de uso de filter():
+Supongamos que tienes una lista de números y deseas filtrar solo los números pares:
+
+python
+Copiar código
+numeros = [1, 2, 3, 4, 5, 6]
+pares = filter(lambda x: x % 2 == 0, numeros)
+print(list(pares))  # [2, 4, 6]
+En este caso, filter() selecciona solo los números que cumplen con la condición de ser divisibles entre 2, es decir, los números pares.
+
+3. Función reduce():
+Objetivo: Reducir un iterable a un solo valor mediante la aplicación acumulativa de una función. A diferencia de map() y filter(), reduce() no devuelve un iterable, sino un único valor que es el resultado de la función aplicada repetidamente a los elementos del iterable.
+
+Cuándo usarla:
+Cuando necesitas acumular o combinar todos los elementos de un iterable en un solo valor (por ejemplo, sumar todos los elementos, multiplicarlos, encontrar el máximo, etc.).
+La función que pases debe tomar dos elementos a la vez, realizar una operación y devolver el resultado acumulado.
+Ejemplo de uso de reduce():
+Supongamos que tienes una lista de números y quieres obtener la suma total de los elementos:
+
+python
+Copiar código
+from functools import reduce
+
+numeros = [1, 2, 3, 4, 5]
+suma_total = reduce(lambda x, y: x + y, numeros)
+print(suma_total)  # 15
+En este caso, reduce() toma dos elementos a la vez, los suma, y repite este proceso con el siguiente elemento hasta que todos los elementos han sido combinados en un solo valor (en este caso, la suma de todos los números).
+
+Resumen de cuándo usar cada una:
+map(): Cuando quieres transformar cada elemento de un iterable aplicando una función.
+
+Ejemplo: Convertir todos los números de una lista a su cuadrado.
+filter(): Cuando quieres filtrar elementos de un iterable según una condición (deja solo los que cumplen la condición).
+
+Ejemplo: Filtrar solo los números pares de una lista.
+reduce(): Cuando quieres reducir un iterable a un solo valor (realizar una operación acumulativa como suma, multiplicación, etc.).
+
+Ejemplo: Sumar todos los números de una lista.
+
+
+
+
+
+En Python, la función incorporada list() se utiliza para crear listas. Una lista es un tipo de datos mutable que puede contener una colección ordenada de elementos, los cuales pueden ser de diferentes tipos (números, cadenas, objetos, etc.).
+
+¿Qué hace list()?
+La función list() convierte cualquier objeto iterable (como cadenas, tuplas, conjuntos, diccionarios, u otros objetos iterables) en una lista. Si no le pasas ningún argumento, crea una lista vacía.
+
+Sintaxis:
+python
+Copiar código
+list([iterable])
+iterable: Es opcional. Puede ser cualquier objeto iterable. Si no se proporciona, devuelve una lista vacía.
+Casos comunes de uso:
+Crear una lista vacía: Útil cuando necesitas inicializar una lista y agregarle elementos más tarde.
+
+python
+Copiar código
+mi_lista = list()
+print(mi_lista)  # Salida: []
+Convertir un iterable en una lista: Convierte objetos como cadenas, tuplas, conjuntos o rangos en listas.
+
+python
+Copiar código
+# De cadena a lista
+cadena = "hola"
+lista = list(cadena)
+print(lista)  # Salida: ['h', 'o', 'l', 'a']
+
+# De tupla a lista
+tupla = (1, 2, 3)
+lista = list(tupla)
+print(lista)  # Salida: [1, 2, 3]
+
+# De rango a lista
+rango = range(5)
+lista = list(rango)
+print(lista)  # Salida: [0, 1, 2, 3, 4]
+Copiar una lista: Puedes crear una copia de una lista existente usando list().
+
+python
+Copiar código
+original = [1, 2, 3]
+copia = list(original)
+print(copia)  # Salida: [1, 2, 3]
+Convertir diccionarios a listas: Extrae las claves de un diccionario como una lista.
+
+python
+Copiar código
+diccionario = {'a': 1, 'b': 2, 'c': 3}
+claves = list(diccionario)
+print(claves)  # Salida: ['a', 'b', 'c']
+¿Cuándo usar list()?
+Cuando necesitas trabajar con una estructura de datos que requiere mutabilidad (listas son mutables).
+Para convertir iterables en listas y aprovechar métodos específicos de listas como append(), remove(), etc.
+Para inicializar listas vacías como punto de partida.
+Ejemplo práctico:
+python
+Copiar código
+# Convertir un rango a una lista para manipulación
+numeros = range(10)  # Un rango de 0 a 9
+lista_numeros = list(numeros)
+
+# Modificar la lista
+lista_numeros.append(10)
+print(lista_numeros)  # Salida: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+En resumen, list() es una función versátil que te ayuda a trabajar con colecciones de elementos y a manipular datos fácilmente en Python.
