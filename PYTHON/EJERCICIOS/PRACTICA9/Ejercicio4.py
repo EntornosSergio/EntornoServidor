@@ -10,4 +10,5 @@ with open("EJERCICIOS/PRACTICA9/Ejercicio4.txt","r") as t:
                 conteo[i]=1
 
 print(conteo)
+print("Palabra que mas se repite: " + max(conteo, key=conteo.get) )
 
