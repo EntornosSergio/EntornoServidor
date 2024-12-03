@@ -1,0 +1,2466 @@
+LISTAS
+
+1. ¿Qué es una lista en Python?
+Una lista es una estructura de datos que permite almacenar múltiples elementos (de cualquier tipo: enteros, cadenas, objetos, otras listas, etc.) en un solo objeto. Las listas son ordenadas, mutables (puedes cambiarlas después de crearlas) y permiten elementos duplicados.
+
+Las listas se crean con corchetes [], y los elementos se separan por comas.
+
+Ejemplo:
+python
+Copiar código
+mi_lista = [1, 2, 3, 4, 5]
+2. Acceso a los elementos de una lista
+Cada elemento de una lista tiene un índice, que empieza desde 0. Puedes acceder a un elemento específico usando ese índice.
+
+Ejemplo:
+python
+Copiar código
+mi_lista = [10, 20, 30, 40, 50]
+
+print(mi_lista[0])  # Salida: 10
+print(mi_lista[3])  # Salida: 40
+Índices negativos:
+Si usas índices negativos, accedes a los elementos desde el final de la lista. El índice -1 se refiere al último elemento, -2 al penúltimo, etc.
+
+python
+Copiar código
+print(mi_lista[-1])  # Salida: 50 (último elemento)
+print(mi_lista[-2])  # Salida: 40 (penúltimo elemento)
+3. Modificar una lista
+Las listas son mutables, lo que significa que puedes modificar sus elementos después de haberlas creado.
+
+Ejemplo:
+python
+Copiar código
+mi_lista = [10, 20, 30, 40, 50]
+
+# Cambiar un valor en una posición específica
+mi_lista[1] = 25
+print(mi_lista)  # Salida: [10, 25, 30, 40, 50]
+
+# Modificar varios elementos
+mi_lista[2:4] = [35, 45]
+print(mi_lista)  # Salida: [10, 25, 35, 45, 50]
+4. Agregar elementos a una lista
+Existen varias formas de agregar elementos a una lista:
+
+append(): Añadir un elemento al final de la lista.
+python
+Copiar código
+mi_lista = [1, 2, 3]
+mi_lista.append(4)
+print(mi_lista)  # Salida: [1, 2, 3, 4]
+insert(): Insertar un elemento en una posición específica.
+python
+Copiar código
+mi_lista = [1, 2, 3]
+mi_lista.insert(1, "Nuevo")  # Inserta "Nuevo" en el índice 1
+print(mi_lista)  # Salida: [1, "Nuevo", 2, 3]
+extend(): Añadir múltiples elementos a la lista.
+python
+Copiar código
+mi_lista = [1, 2, 3]
+mi_lista.extend([4, 5, 6])
+print(mi_lista)  # Salida: [1, 2, 3, 4, 5, 6]
+5. Eliminar elementos de una lista
+También puedes eliminar elementos de una lista de varias maneras:
+
+remove(): Elimina el primer elemento que coincide con el valor dado.
+python
+Copiar código
+mi_lista = [1, 2, 3, 4, 2]
+mi_lista.remove(2)  # Elimina el primer "2"
+print(mi_lista)  # Salida: [1, 3, 4, 2]
+pop(): Elimina y devuelve el elemento en el índice dado (por defecto elimina el último elemento).
+python
+Copiar código
+mi_lista = [1, 2, 3]
+ultimo = mi_lista.pop()  # Elimina y devuelve el último elemento
+print(ultimo)  # Salida: 3
+print(mi_lista)  # Salida: [1, 2]
+del: Elimina un elemento en un índice específico o incluso toda la lista.
+python
+Copiar código
+mi_lista = [1, 2, 3]
+del mi_lista[0]  # Elimina el elemento en el índice 0
+print(mi_lista)  # Salida: [2, 3]
+
+# Eliminar toda la lista
+del mi_lista
+# print(mi_lista)  # Esto daría un error, porque la lista ya fue eliminada
+6. Operaciones con listas
+Longitud de una lista (len())
+Puedes obtener el número de elementos en una lista con la función len().
+
+python
+Copiar código
+mi_lista = [1, 2, 3, 4]
+print(len(mi_lista))  # Salida: 4
+Concatenación de listas (+)
+Puedes juntar dos o más listas usando el operador +.
+
+python
+Copiar código
+lista1 = [1, 2, 3]
+lista2 = [4, 5, 6]
+lista_combinada = lista1 + lista2
+print(lista_combinada)  # Salida: [1, 2, 3, 4, 5, 6]
+Repetir listas (*)
+Puedes repetir los elementos de una lista utilizando el operador *.
+
+python
+Copiar código
+mi_lista = [1, 2, 3]
+print(mi_lista * 2)  # Salida: [1, 2, 3, 1, 2, 3]
+7. Ordenar y buscar elementos en una lista
+Ordenar una lista (sort())
+Puedes ordenar los elementos de una lista con el método .sort(). Este método modifica la lista original.
+
+python
+Copiar código
+mi_lista = [3, 1, 2, 5, 4]
+mi_lista.sort()
+print(mi_lista)  # Salida: [1, 2, 3, 4, 5]
+Si quieres ordenar en orden descendente, puedes usar el argumento reverse=True:
+
+python
+Copiar código
+mi_lista.sort(reverse=True)
+print(mi_lista)  # Salida: [5, 4, 3, 2, 1]
+Buscar un elemento (in y index())
+Puedes comprobar si un elemento está en una lista con el operador in o encontrar su índice con .index().
+
+python
+Copiar código
+mi_lista = [1, 2, 3, 4]
+
+# Comprobar si un valor está en la lista
+print(3 in mi_lista)  # Salida: True
+
+# Obtener el índice de un valor
+print(mi_lista.index(3))  # Salida: 2
+8. Listas dentro de listas (listas anidadas)
+Las listas también pueden contener otras listas. Esto se llama listas anidadas.
+
+python
+Copiar código
+mi_lista_anidada = [[1, 2], [3, 4], [5, 6]]
+print(mi_lista_anidada[0])  # Salida: [1, 2]
+print(mi_lista_anidada[1][1])  # Salida: 4 (accediendo al segundo valor de la segunda sublista)
+9. Comprensiones de listas (List Comprehension)
+Las comprensiones de listas son una forma compacta y eficiente de crear listas. Permiten aplicar operaciones a los elementos de una lista de manera más concisa.
+
+Ejemplo:
+python
+Copiar código
+# Crear una lista con los cuadrados de los números del 1 al 5
+cuadrados = [x**2 for x in range(1, 6)]
+print(cuadrados)  # Salida: [1, 4, 9, 16, 25]
+10. Copiar una lista
+Puedes hacer una copia de una lista de las siguientes formas:
+
+Usando el método copy():
+python
+Copiar código
+mi_lista = [1, 2, 3]
+copia_lista = mi_lista.copy()
+Usando el operador de corte [:]:
+python
+Copiar código
+mi_lista = [1, 2, 3]
+copia_lista = mi_lista[:]
+Resumen de las operaciones comunes con listas
+Crear: mi_lista = [1, 2, 3]
+Acceder: mi_lista[0]
+Modificar: mi_lista[1] = 4
+Agregar: mi_lista.append(5), mi_lista.insert(1, "nuevo")
+Eliminar: mi_lista.remove(3), mi_lista.pop()
+Ordenar: mi_lista.sort()
+Buscar: 3 in mi_lista, mi_lista.index(3)
+Longitud: len(mi_lista)
+Concatenar: lista1 + lista2
+Repetir: mi_lista * 2
+List comprehension: [x**2 for x in range(1, 6)]
+
+
+
+TUPLAS
+
+1. ¿Qué es una tupla en Python?
+Una tupla es una estructura de datos ordenada y inmutable que puede almacenar elementos de diferentes tipos (enteros, cadenas, otros objetos, listas, etc.). Las tuplas se crean con paréntesis () y los elementos se separan por comas.
+
+Ejemplo de una tupla:
+python
+Copiar código
+mi_tupla = (1, 2, 3, 4, 5)
+2. Acceso a los elementos de una tupla
+Al igual que las listas, los elementos de una tupla tienen un índice, comenzando desde 0. Puedes acceder a los elementos de una tupla utilizando esos índices.
+
+Ejemplo:
+python
+Copiar código
+mi_tupla = (10, 20, 30, 40, 50)
+
+print(mi_tupla[0])  # Salida: 10
+print(mi_tupla[3])  # Salida: 40
+Índices negativos:
+Si usas índices negativos, accedes a los elementos desde el final de la tupla. El índice -1 se refiere al último elemento, -2 al penúltimo, etc.
+
+python
+Copiar código
+print(mi_tupla[-1])  # Salida: 50 (último elemento)
+print(mi_tupla[-2])  # Salida: 40 (penúltimo elemento)
+3. Modificar una tupla
+Las tuplas son inmutables, por lo que no puedes modificar sus elementos una vez que la has creado. Esto significa que no puedes hacer cosas como asignar un valor a un índice de la tupla ni eliminar o añadir elementos.
+
+Intentar modificar una tupla (esto dará error):
+python
+Copiar código
+mi_tupla = (10, 20, 30)
+# mi_tupla[1] = 25  # Esto dará un error: TypeError: 'tuple' object does not support item assignment
+4. Agregar elementos a una tupla
+Debido a que las tuplas son inmutables, no puedes agregar elementos a una tupla existente de la misma manera que con las listas. Sin embargo, puedes concatenar tuplas para crear una nueva tupla con elementos adicionales.
+
+Ejemplo de concatenación:
+python
+Copiar código
+tupla1 = (1, 2, 3)
+tupla2 = (4, 5)
+tupla_completa = tupla1 + tupla2  # Concatenamos las dos tuplas
+print(tupla_completa)  # Salida: (1, 2, 3, 4, 5)
+5. Eliminar elementos de una tupla
+No puedes eliminar elementos de una tupla directamente. Si necesitas eliminar elementos, la única opción es crear una nueva tupla sin esos elementos.
+
+Ejemplo de eliminación (creando una nueva tupla):
+python
+Copiar código
+mi_tupla = (10, 20, 30, 40, 50)
+# Para eliminar el 20 y el 30, por ejemplo:
+nueva_tupla = mi_tupla[:1] + mi_tupla[3:]
+print(nueva_tupla)  # Salida: (10, 40, 50)
+6. Operaciones con tuplas
+Aunque las tuplas son inmutables, hay algunas operaciones que puedes realizar con ellas.
+
+Longitud de una tupla (len())
+Puedes obtener el número de elementos de una tupla con la función len().
+
+python
+Copiar código
+mi_tupla = (1, 2, 3, 4)
+print(len(mi_tupla))  # Salida: 4
+Concatenación de tuplas (+)
+Al igual que las listas, puedes juntar dos o más tuplas usando el operador +.
+
+python
+Copiar código
+tupla1 = (1, 2, 3)
+tupla2 = (4, 5, 6)
+tupla_combinada = tupla1 + tupla2
+print(tupla_combinada)  # Salida: (1, 2, 3, 4, 5, 6)
+Repetir tuplas (*)
+Puedes repetir los elementos de una tupla utilizando el operador *.
+
+python
+Copiar código
+mi_tupla = (1, 2, 3)
+print(mi_tupla * 2)  # Salida: (1, 2, 3, 1, 2, 3)
+7. Buscar elementos en una tupla
+Aunque las tuplas no son tan manipulables como las listas, aún puedes buscar elementos dentro de ellas usando el operador in o encontrar el índice de un elemento con el método .index().
+
+Comprobar si un valor está en la tupla:
+python
+Copiar código
+mi_tupla = (10, 20, 30)
+print(20 in mi_tupla)  # Salida: True
+print(40 in mi_tupla)  # Salida: False
+Obtener el índice de un valor en la tupla:
+python
+Copiar código
+mi_tupla = (10, 20, 30, 20)
+print(mi_tupla.index(20))  # Salida: 1 (el primer índice donde aparece 20)
+8. Tuplas dentro de tuplas (tuplas anidadas)
+Al igual que las listas, las tuplas pueden contener otras tuplas. Esto se llama tuplas anidadas.
+
+python
+Copiar código
+mi_tupla_anidada = ((1, 2), (3, 4), (5, 6))
+print(mi_tupla_anidada[0])  # Salida: (1, 2)
+print(mi_tupla_anidada[1][1])  # Salida: 4 (accediendo al segundo valor de la segunda tupla)
+9. Comprensiones de tuplas
+Las comprensiones de tuplas no son posibles de la misma manera que las de listas, porque las tuplas son inmutables. Sin embargo, puedes usar una expresión generadora dentro de la función tuple() para crear una tupla de manera compacta.
+
+Ejemplo:
+python
+Copiar código
+# Crear una tupla con los cuadrados de los números del 1 al 5
+cuadrados = tuple(x**2 for x in range(1, 6))
+print(cuadrados)  # Salida: (1, 4, 9, 16, 25)
+10. Copiar una tupla
+Como las tuplas son inmutables, no necesitas hacer copias explícitas como con las listas, ya que no puedes modificar la tupla original. Si quieres realizar una copia, puedes hacer una nueva tupla con los mismos elementos:
+
+python
+Copiar código
+mi_tupla = (1, 2, 3)
+copia_tupla = mi_tupla
+print(copia_tupla)  # Salida: (1, 2, 3)
+Resumen de las operaciones comunes con tuplas
+Crear: mi_tupla = (1, 2, 3)
+Acceder: mi_tupla[0]
+Concatenar: tupla1 + tupla2
+Repetir: mi_tupla * 2
+Buscar: 20 in mi_tupla, mi_tupla.index(20)
+Longitud: len(mi_tupla)
+Tuplas anidadas: ((1, 2), (3, 4))
+Tupla desde expresión generadora: tuple(x**2 for x in range(1, 6))
+
+
+
+[:1]
+
+¿Qué es el Slicing (Rebanado)?
+El slicing te permite acceder a una porción de una lista, tupla o cadena usando una notación especial: inicio:fin. La idea básica es que defines un rango de índices dentro de una secuencia (como una lista) para obtener una sublista (o subcadena) que comienza en el índice inicio y termina en el índice fin.
+
+Sintaxis general del slicing
+python
+Copiar código
+secuencia[inicio:fin]
+inicio: El índice donde empieza la rebanada (es decir, el primer elemento incluido en el resultado). Si no se especifica, empieza desde el principio de la secuencia (índice 0).
+fin: El índice donde termina la rebanada (pero no se incluye este índice). Si no se especifica, la rebanada irá hasta el final de la secuencia.
+Ejemplo básico:
+python
+Copiar código
+mi_lista = [10, 20, 30, 40, 50]
+
+# Rebanada desde el índice 1 hasta el 3 (no incluye el 3)
+sub_lista = mi_lista[1:3]
+print(sub_lista)  # Salida: [20, 30]
+En este ejemplo:
+
+El índice 1 es el inicio (incluido en el resultado).
+El índice 3 es el fin, pero no se incluye.
+Variaciones del slicing
+1. Desde el inicio hasta un índice específico: [:n]
+Si no pones nada antes de los dos puntos :, Python entiende que quieres empezar desde el inicio de la secuencia.
+
+python
+Copiar código
+mi_lista = [10, 20, 30, 40, 50]
+
+# Rebanada desde el inicio hasta el índice 2 (no incluye el 2)
+sub_lista = mi_lista[:3]
+print(sub_lista)  # Salida: [10, 20, 30]
+Aquí, el :3 significa que queremos todo desde el principio hasta el índice 3 (sin incluirlo).
+
+2. Desde un índice específico hasta el final: [n:]
+Si no pones nada después de los dos puntos :, Python entiende que quieres cortar hasta el final de la secuencia.
+
+python
+Copiar código
+mi_lista = [10, 20, 30, 40, 50]
+
+# Rebanada desde el índice 2 hasta el final
+sub_lista = mi_lista[2:]
+print(sub_lista)  # Salida: [30, 40, 50]
+Aquí, el 2: significa que queremos todo desde el índice 2 hasta el final de la lista.
+
+3. Rebanadas con índices negativos
+Python también permite índices negativos para acceder a los elementos desde el final de la secuencia. El índice -1 es el último elemento, -2 es el penúltimo, y así sucesivamente.
+
+python
+Copiar código
+mi_lista = [10, 20, 30, 40, 50]
+
+# Rebanada desde el índice -3 hasta el final
+sub_lista = mi_lista[-3:]
+print(sub_lista)  # Salida: [30, 40, 50]
+Aquí, el -3: significa "comienza en el tercer elemento desde el final hasta el final de la lista".
+
+4. Rebanadas con un paso: [inicio:fin:paso]
+Puedes agregar un paso (también llamado "step") que indica cuántos elementos quieres saltarte mientras haces la rebanada. Esto se escribe después de los dos puntos.
+
+python
+Copiar código
+mi_lista = [10, 20, 30, 40, 50]
+
+# Rebanada desde el índice 0 hasta el 4, pero con un paso de 2
+sub_lista = mi_lista[0:5:2]
+print(sub_lista)  # Salida: [10, 30, 50]
+En este ejemplo:
+
+El 0:5:2 significa "tomar los elementos de índice 0 a 4 (sin incluir el 5) pero saltándote uno".
+Resultado: [10, 30, 50], porque toma el primer, tercer y quinto elementos.
+Resumiendo las variaciones de slicing
+secuencia[inicio:fin]: Desde el índice inicio hasta el índice fin (sin incluirlo).
+secuencia[:fin]: Desde el principio hasta el índice fin (sin incluirlo).
+secuencia[inicio:]: Desde el índice inicio hasta el final.
+secuencia[-n:]: Desde el n-ésimo elemento desde el final hasta el final.
+secuencia[inicio:fin:paso]: Desde el índice inicio hasta el índice fin (sin incluirlo), tomando cada paso-ésimo elemento.
+Ejemplo con varias combinaciones:
+python
+Copiar código
+mi_lista = [10, 20, 30, 40, 50, 60, 70]
+
+# Tomar del índice 1 al 5, con un paso de 2
+sub_lista = mi_lista[1:6:2]
+print(sub_lista)  # Salida: [20, 40, 60]
+Aquí:
+
+Comienza en el índice 1 (20) y termina antes del índice 6 (sin incluir el 6).
+Toma un paso de 2, es decir, toma los elementos en las posiciones 1, 3 y 5 (20, 40 y 60).
+Casos especiales:
+1. Obtener toda la lista con slicing:
+Puedes obtener toda la lista simplemente usando [:] sin especificar índices de inicio ni fin.
+
+python
+Copiar código
+mi_lista = [10, 20, 30, 40, 50]
+toda_lista = mi_lista[:]  # Esto devuelve una copia de la lista
+print(toda_lista)  # Salida: [10, 20, 30, 40, 50]
+2. Usar slicing para invertir una secuencia:
+Si pones un paso de -1, puedes invertir una lista o cadena.
+
+python
+Copiar código
+mi_lista = [10, 20, 30, 40, 50]
+lista_invertida = mi_lista[::-1]
+print(lista_invertida)  # Salida: [50, 40, 30, 20, 10]
+Resumen de la sintaxis de slicing:
+[inicio:fin]: Sublista desde inicio hasta fin - 1.
+[:fin]: Sublista desde el inicio hasta fin - 1.
+[inicio:]: Sublista desde inicio hasta el final.
+[inicio:fin:paso]: Sublista desde inicio hasta fin - 1, con un paso de paso.
+[::-1]: Sublista invertida.
+
+
+
+MAP
+
+1. Función map():
+Objetivo: Aplicar una función a cada elemento de un iterable (como una lista, tupla, etc.) y devolver un iterable con los resultados.
+
+Cuándo usarla:
+Cuando necesitas transformar todos los elementos de un iterable aplicando una función a cada uno de ellos.
+La función que pases como argumento debe retornar un valor para cada elemento.
+Ejemplo de uso de map():
+Supongamos que tienes una lista de números y deseas obtener una lista con sus cuadrados:
+
+python
+Copiar código
+numeros = [1, 2, 3, 4, 5]
+cuadrados = map(lambda x: x ** 2, numeros)
+print(list(cuadrados))  # [1, 4, 9, 16, 25]
+En este caso, map() toma cada número y lo eleva al cuadrado, produciendo un nuevo iterable con los resultados.
+
+2. Función filter():
+Objetivo: Filtrar los elementos de un iterable según una condición. La función debe devolver True o False, y solo los elementos para los que la función devuelva True se incluirán en el resultado.
+
+Cuándo usarla:
+Cuando necesitas seleccionar solo algunos elementos de un iterable, basándote en una condición.
+La función que pases como argumento debe devolver un valor booleano (True o False) indicando si el elemento debe ser incluido en el resultado.
+Ejemplo de uso de filter():
+Supongamos que tienes una lista de números y deseas filtrar solo los números pares:
+
+python
+Copiar código
+numeros = [1, 2, 3, 4, 5, 6]
+pares = filter(lambda x: x % 2 == 0, numeros)
+print(list(pares))  # [2, 4, 6]
+En este caso, filter() selecciona solo los números que cumplen con la condición de ser divisibles entre 2, es decir, los números pares.
+
+3. Función reduce():
+Objetivo: Reducir un iterable a un solo valor mediante la aplicación acumulativa de una función. A diferencia de map() y filter(), reduce() no devuelve un iterable, sino un único valor que es el resultado de la función aplicada repetidamente a los elementos del iterable.
+
+Cuándo usarla:
+Cuando necesitas acumular o combinar todos los elementos de un iterable en un solo valor (por ejemplo, sumar todos los elementos, multiplicarlos, encontrar el máximo, etc.).
+La función que pases debe tomar dos elementos a la vez, realizar una operación y devolver el resultado acumulado.
+Ejemplo de uso de reduce():
+Supongamos que tienes una lista de números y quieres obtener la suma total de los elementos:
+
+python
+Copiar código
+from functools import reduce
+
+numeros = [1, 2, 3, 4, 5]
+suma_total = reduce(lambda x, y: x + y, numeros)
+print(suma_total)  # 15
+En este caso, reduce() toma dos elementos a la vez, los suma, y repite este proceso con el siguiente elemento hasta que todos los elementos han sido combinados en un solo valor (en este caso, la suma de todos los números).
+
+Resumen de cuándo usar cada una:
+map(): Cuando quieres transformar cada elemento de un iterable aplicando una función.
+
+Ejemplo: Convertir todos los números de una lista a su cuadrado.
+filter(): Cuando quieres filtrar elementos de un iterable según una condición (deja solo los que cumplen la condición).
+
+Ejemplo: Filtrar solo los números pares de una lista.
+reduce(): Cuando quieres reducir un iterable a un solo valor (realizar una operación acumulativa como suma, multiplicación, etc.).
+
+Ejemplo: Sumar todos los números de una lista.
+
+
+
+LIST
+
+En Python, la función incorporada list() se utiliza para crear listas. Una lista es un tipo de datos mutable que puede contener una colección ordenada de elementos, los cuales pueden ser de diferentes tipos (números, cadenas, objetos, etc.).
+
+¿Qué hace list()?
+La función list() convierte cualquier objeto iterable (como cadenas, tuplas, conjuntos, diccionarios, u otros objetos iterables) en una lista. Si no le pasas ningún argumento, crea una lista vacía.
+
+Sintaxis:
+python
+Copiar código
+list([iterable])
+iterable: Es opcional. Puede ser cualquier objeto iterable. Si no se proporciona, devuelve una lista vacía.
+Casos comunes de uso:
+Crear una lista vacía: Útil cuando necesitas inicializar una lista y agregarle elementos más tarde.
+
+python
+Copiar código
+mi_lista = list()
+print(mi_lista)  # Salida: []
+Convertir un iterable en una lista: Convierte objetos como cadenas, tuplas, conjuntos o rangos en listas.
+
+python
+Copiar código
+# De cadena a lista
+cadena = "hola"
+lista = list(cadena)
+print(lista)  # Salida: ['h', 'o', 'l', 'a']
+
+# De tupla a lista
+tupla = (1, 2, 3)
+lista = list(tupla)
+print(lista)  # Salida: [1, 2, 3]
+
+# De rango a lista
+rango = range(5)
+lista = list(rango)
+print(lista)  # Salida: [0, 1, 2, 3, 4]
+Copiar una lista: Puedes crear una copia de una lista existente usando list().
+
+python
+Copiar código
+original = [1, 2, 3]
+copia = list(original)
+print(copia)  # Salida: [1, 2, 3]
+Convertir diccionarios a listas: Extrae las claves de un diccionario como una lista.
+
+python
+Copiar código
+diccionario = {'a': 1, 'b': 2, 'c': 3}
+claves = list(diccionario)
+print(claves)  # Salida: ['a', 'b', 'c']
+¿Cuándo usar list()?
+Cuando necesitas trabajar con una estructura de datos que requiere mutabilidad (listas son mutables).
+Para convertir iterables en listas y aprovechar métodos específicos de listas como append(), remove(), etc.
+Para inicializar listas vacías como punto de partida.
+Ejemplo práctico:
+python
+Copiar código
+# Convertir un rango a una lista para manipulación
+numeros = range(10)  # Un rango de 0 a 9
+lista_numeros = list(numeros)
+
+# Modificar la lista
+lista_numeros.append(10)
+print(lista_numeros)  # Salida: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+En resumen, list() es una función versátil que te ayuda a trabajar con colecciones de elementos y a manipular datos fácilmente en Python.
+
+
+DICCIONARIOS
+
+En Python, los diccionarios son estructuras de datos que permiten almacenar pares de clave-valor, donde las claves son únicas y cada clave está asociada con un valor. Son muy útiles para organizar datos de manera más semántica o fácil de buscar.
+
+Características de los diccionarios
+Mutables: Puedes modificar, agregar o eliminar elementos después de haber creado el diccionario.
+No ordenados (en versiones <3.7): Aunque desde Python 3.7 los diccionarios mantienen el orden de inserción, no siempre se basan en este orden en otras operaciones.
+Acceso eficiente: Recuperar el valor asociado a una clave tiene un rendimiento muy bueno gracias a la implementación interna como tablas hash.
+Claves únicas: No puedes tener dos claves iguales en el mismo diccionario. Si lo intentas, la última asignación sobrescribe el valor anterior.
+Sintaxis básica
+Un diccionario se define con llaves {} y pares de clave-valor separados por :.
+
+python
+Copiar código
+# Crear un diccionario vacío
+mi_diccionario = {}
+
+# Crear un diccionario con datos
+mi_diccionario = {
+    "nombre": "Juan",
+    "edad": 30,
+    "ciudad": "Madrid"
+}
+Principales operaciones con diccionarios
+Acceso a valores
+
+Usar la clave para acceder al valor asociado:
+python
+Copiar código
+print(mi_diccionario["nombre"])  # Salida: Juan
+Usar el método .get() para evitar errores si la clave no existe:
+python
+Copiar código
+print(mi_diccionario.get("pais", "Clave no encontrada"))  # Salida: Clave no encontrada
+Agregar o actualizar elementos
+
+python
+Copiar código
+# Agregar una nueva clave-valor
+mi_diccionario["pais"] = "España"
+
+# Actualizar un valor existente
+mi_diccionario["edad"] = 31
+Eliminar elementos
+
+python
+Copiar código
+# Eliminar una clave-valor específica
+mi_diccionario.pop("ciudad")
+
+# Eliminar el último elemento agregado (solo Python 3.7+)
+mi_diccionario.popitem()
+
+# Eliminar una clave directamente (puede lanzar un error si no existe)
+del mi_diccionario["pais"]
+Comprobar la existencia de una clave
+
+python
+Copiar código
+if "nombre" in mi_diccionario:
+    print("La clave 'nombre' está en el diccionario")
+Iterar sobre un diccionario
+
+Iterar por claves:
+python
+Copiar código
+for clave in mi_diccionario:
+    print(clave)
+Iterar por valores:
+python
+Copiar código
+for valor in mi_diccionario.values():
+    print(valor)
+Iterar por pares clave-valor:
+python
+Copiar código
+for clave, valor in mi_diccionario.items():
+    print(f"{clave}: {valor}")
+Copiar un diccionario
+
+python
+Copiar código
+copia = mi_diccionario.copy()
+Métodos útiles
+
+keys(): Devuelve las claves del diccionario.
+values(): Devuelve los valores del diccionario.
+items(): Devuelve una vista de pares clave-valor.
+python
+Copiar código
+print(mi_diccionario.keys())   # dict_keys(['nombre', 'edad'])
+print(mi_diccionario.values())  # dict_values(['Juan', 31])
+print(mi_diccionario.items())   # dict_items([('nombre', 'Juan'), ('edad', 31)])
+Combinar diccionarios
+
+Usar el método .update():
+python
+Copiar código
+otro_diccionario = {"profesión": "Ingeniero"}
+mi_diccionario.update(otro_diccionario)
+Desde Python 3.9 puedes usar el operador |:
+python
+Copiar código
+combinado = mi_diccionario | otro_diccionario
+Vaciar el diccionario
+
+python
+Copiar código
+mi_diccionario.clear()
+Crear diccionarios con valores predeterminados Usar dict.fromkeys() para crear un diccionario donde todas las claves tengan un valor inicial:
+
+python
+Copiar código
+claves = ["a", "b", "c"]
+valores = 0
+nuevo_diccionario = dict.fromkeys(claves, valores)
+print(nuevo_diccionario)  # {'a': 0, 'b': 0, 'c': 0}
+Ejemplo práctico
+python
+Copiar código
+# Diccionario que almacena la información de un estudiante
+estudiante = {
+    "nombre": "Ana",
+    "edad": 25,
+    "materias": ["Matemáticas", "Física"],
+    "activo": True
+}
+
+# Agregar información
+estudiante["promedio"] = 8.5
+
+# Acceder e imprimir datos
+print(f"Nombre: {estudiante['nombre']}")
+print(f"Materias: {', '.join(estudiante['materias'])}")
+
+# Actualizar datos
+estudiante["edad"] = 26
+
+# Eliminar una clave
+del estudiante["activo"]
+
+# Iterar por claves y valores
+for clave, valor in estudiante.items():
+    print(f"{clave}: {valor}")
+Conclusión
+Los diccionarios son herramientas muy poderosas y versátiles para estructurar datos en Python. Ofrecen una gran cantidad de métodos y flexibilidad para realizar operaciones comunes. ¡Son un elemento clave en la programación con Python!
+
+
+LISTA DE LISTAS
+
+Una lista de listas en Python es simplemente una lista cuyos elementos son otras listas. Esto permite estructurar datos de manera bidimensional o incluso multidimensional, similar a cómo se usan matrices o tablas.
+
+Cómo crear una lista de listas
+Definición básica Puedes definir una lista de listas usando corchetes []:
+
+python
+Copiar código
+lista_de_listas = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+]
+Creación dinámica Usando bucles o comprensión de listas:
+
+python
+Copiar código
+# Crear una lista de listas con bucles
+lista_de_listas = []
+for i in range(3):
+    lista_de_listas.append([j for j in range(1, 4)])  # [1, 2, 3] en cada fila
+
+# Crear una lista de listas con comprensión de listas
+lista_de_listas = [[j for j in range(1, 4)] for i in range(3)]
+Acceso a elementos en una lista de listas
+Acceso a una lista específica
+
+python
+Copiar código
+print(lista_de_listas[0])  # Salida: [1, 2, 3]
+print(lista_de_listas[2])  # Salida: [7, 8, 9]
+Acceso a un elemento dentro de una sublista Se usa un índice doble: el primero para la sublista y el segundo para el elemento.
+
+python
+Copiar código
+print(lista_de_listas[0][1])  # Salida: 2 (segundo elemento de la primera sublista)
+print(lista_de_listas[2][2])  # Salida: 9 (tercer elemento de la tercera sublista)
+Modificar elementos
+
+python
+Copiar código
+lista_de_listas[1][1] = 99  # Cambia el valor en la segunda sublista, segundo elemento
+print(lista_de_listas)  # Salida: [[1, 2, 3], [4, 99, 6], [7, 8, 9]]
+Operaciones comunes con listas de listas
+Iterar sobre una lista de listas
+
+python
+Copiar código
+for sublista in lista_de_listas:
+    print(sublista)  # Imprime cada sublista
+
+# Iterar sobre elementos específicos
+for sublista in lista_de_listas:
+    for elemento in sublista:
+        print(elemento, end=" ")  # Imprime todos los elementos en una línea
+Acceso por filas y columnas
+
+Por filas:
+python
+Copiar código
+fila = lista_de_listas[1]  # Segunda fila
+print(fila)  # Salida: [4, 99, 6]
+Por columnas (requiere extracción):
+python
+Copiar código
+columna = [fila[0] for fila in lista_de_listas]  # Primera columna
+print(columna)  # Salida: [1, 4, 7]
+Tamaño de una lista de listas
+
+Número de filas:
+python
+Copiar código
+print(len(lista_de_listas))  # Salida: 3 (tres sublistas)
+Número de columnas (de una sublista específica):
+python
+Copiar código
+print(len(lista_de_listas[0]))  # Salida: 3 (tres elementos en la primera sublista)
+Agregar o eliminar sublistas
+
+Agregar una nueva sublista:
+python
+Copiar código
+lista_de_listas.append([10, 11, 12])
+print(lista_de_listas)
+Eliminar una sublista:
+python
+Copiar código
+del lista_de_listas[1]  # Elimina la segunda sublista
+print(lista_de_listas)
+Ejemplo práctico: Representación de una matriz
+python
+Copiar código
+# Crear una matriz 3x3 como lista de listas
+matriz = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+]
+
+# Acceder al elemento en la fila 2, columna 3 (índice [1][2])
+print("Elemento en fila 2, columna 3:", matriz[1][2])  # Salida: 6
+
+# Cambiar el valor en fila 3, columna 1 (índice [2][0])
+matriz[2][0] = 99
+
+# Mostrar la matriz completa
+for fila in matriz:
+    print(fila)
+Uso avanzado: Comprensión de listas anidadas
+Puedes usar comprensión de listas para crear o transformar listas de listas:
+
+python
+Copiar código
+# Crear una matriz 3x3 inicializada con ceros
+matriz = [[0 for _ in range(3)] for _ in range(3)]
+print(matriz)  # Salida: [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
+
+# Transformar la matriz para que sea una matriz identidad
+for i in range(3):
+    matriz[i][i] = 1
+print(matriz)  # Salida: [[1, 0, 0], [0, 1, 0], [0, 0, 1]]
+Conclusión
+Las listas de listas son extremadamente flexibles y útiles para trabajar con datos tabulares, matrices o estructuras jerárquicas. Con un buen manejo de índices y bucles, puedes realizar operaciones complejas de forma eficiente.
+
+
+
+LISTA DE TUPLAS
+
+En Python, una lista de tuplas es simplemente una lista cuyos elementos son tuplas. Este tipo de estructura es útil cuando deseas almacenar colecciones de datos relacionados, donde cada elemento de la lista contiene una tupla con datos agrupados.
+
+Cómo crear una lista de tuplas
+Definición básica Puedes crear una lista de tuplas directamente usando corchetes [] para la lista y paréntesis () para las tuplas:
+
+python
+Copiar código
+lista_de_tuplas = [
+    (1, "Manzana"),
+    (2, "Naranja"),
+    (3, "Pera")
+]
+Creación dinámica Usar bucles o comprensión de listas:
+
+python
+Copiar código
+# Crear una lista de tuplas usando un bucle
+lista_de_tuplas = []
+for i in range(5):
+    lista_de_tuplas.append((i, i**2))
+
+# Crear una lista de tuplas con comprensión de listas
+lista_de_tuplas = [(i, i**2) for i in range(5)]
+Acceso a elementos en una lista de tuplas
+Acceso a tuplas individuales Usa el índice para acceder a una tupla específica dentro de la lista:
+
+python
+Copiar código
+print(lista_de_tuplas[1])  # Salida: (1, 1)
+print(lista_de_tuplas[3])  # Salida: (3, 9)
+Acceso a elementos dentro de una tupla Usa un índice doble: el primero para la posición de la tupla en la lista y el segundo para el elemento dentro de la tupla:
+
+python
+Copiar código
+print(lista_de_tuplas[1][1])  # Salida: 1 (segundo elemento de la segunda tupla)
+print(lista_de_tuplas[3][0])  # Salida: 3 (primer elemento de la cuarta tupla)
+Modificar una lista de tuplas
+Modificar una tupla completa Aunque las tuplas son inmutables, puedes reemplazarlas por una nueva tupla:
+
+python
+Copiar código
+lista_de_tuplas[1] = (10, "Plátano")
+print(lista_de_tuplas)  # [(0, 0), (10, 'Plátano'), (2, 4), (3, 9), (4, 16)]
+Modificar un elemento específico dentro de una tupla Debes reconstruir la tupla completa, ya que las tuplas no se pueden modificar directamente:
+
+python
+Copiar código
+tupla_modificada = list(lista_de_tuplas[1])  # Convertir a lista
+tupla_modificada[1] = "Uva"  # Modificar el elemento
+lista_de_tuplas[1] = tuple(tupla_modificada)  # Convertir de nuevo a tupla
+print(lista_de_tuplas)  # [(0, 0), (10, 'Uva'), (2, 4), (3, 9), (4, 16)]
+Iterar sobre una lista de tuplas
+Iterar por tuplas completas
+
+python
+Copiar código
+for tupla in lista_de_tuplas:
+    print(tupla)
+Desempaquetar las tuplas durante la iteración Si cada tupla tiene un número fijo de elementos, puedes desempaquetarlas directamente:
+
+python
+Copiar código
+for numero, cuadrado in lista_de_tuplas:
+    print(f"El cuadrado de {numero} es {cuadrado}")
+Operaciones comunes
+Agregar tuplas a la lista
+
+python
+Copiar código
+lista_de_tuplas.append((5, 25))  # Agregar al final
+print(lista_de_tuplas)
+Eliminar tuplas de la lista
+
+python
+Copiar código
+lista_de_tuplas.remove((3, 9))  # Eliminar por valor
+del lista_de_tuplas[0]  # Eliminar por índice
+print(lista_de_tuplas)
+Ordenar una lista de tuplas
+
+Ordenar por el primer elemento de las tuplas:
+python
+Copiar código
+lista_de_tuplas.sort()
+print(lista_de_tuplas)
+Ordenar por el segundo elemento de las tuplas usando key:
+python
+Copiar código
+lista_de_tuplas.sort(key=lambda x: x[1])
+print(lista_de_tuplas)
+Filtrar una lista de tuplas Usar comprensión de listas para filtrar:
+
+python
+Copiar código
+filtrada = [tupla for tupla in lista_de_tuplas if tupla[1] > 10]
+print(filtrada)
+Ejemplo práctico
+Un caso común es trabajar con una lista de tuplas que represente datos estructurados, como empleados o coordenadas:
+
+python
+Copiar código
+# Lista de tuplas: (ID, Nombre, Edad)
+empleados = [
+    (1, "Ana", 28),
+    (2, "Luis", 35),
+    (3, "Pedro", 24)
+]
+
+# Agregar un nuevo empleado
+empleados.append((4, "Carla", 30))
+
+# Imprimir todos los empleados mayores de 25 años
+for id_empleado, nombre, edad in empleados:
+    if edad > 25:
+        print(f"ID: {id_empleado}, Nombre: {nombre}, Edad: {edad}")
+
+# Ordenar empleados por edad
+empleados.sort(key=lambda x: x[2])
+print("Ordenados por edad:", empleados)
+Conclusión
+Las listas de tuplas son extremadamente útiles para manejar datos relacionados de manera eficiente y estructurada. Aunque las tuplas son inmutables, puedes realizar operaciones en la lista que las contiene para lograr la flexibilidad necesaria.
+
+
+
+LISTA DE DICCIONARIOS
+
+Una lista de diccionarios en Python es una lista cuyos elementos son diccionarios. Es una estructura de datos poderosa que permite almacenar y organizar colecciones de datos estructurados. Es muy común en aplicaciones como bases de datos o JSON.
+
+Cómo crear una lista de diccionarios
+Definición básica Usa corchetes [] para definir la lista, y llaves {} para definir los diccionarios:
+
+python
+Copiar código
+lista_de_diccionarios = [
+    {"id": 1, "nombre": "Ana", "edad": 28},
+    {"id": 2, "nombre": "Luis", "edad": 35},
+    {"id": 3, "nombre": "Pedro", "edad": 24}
+]
+Creación dinámica Usar bucles o comprensión de listas para crear una lista de diccionarios:
+
+python
+Copiar código
+# Crear una lista de diccionarios usando un bucle
+lista_de_diccionarios = []
+for i in range(1, 4):
+    lista_de_diccionarios.append({"id": i, "nombre": f"Persona {i}", "edad": 20 + i})
+
+# Usar comprensión de listas
+lista_de_diccionarios = [{"id": i, "nombre": f"Persona {i}", "edad": 20 + i} for i in range(1, 4)]
+Acceso a datos en una lista de diccionarios
+Acceder a un diccionario específico Usa el índice de la lista para seleccionar un diccionario:
+
+python
+Copiar código
+print(lista_de_diccionarios[1])  # Salida: {"id": 2, "nombre": "Luis", "edad": 35}
+Acceder a un valor específico dentro de un diccionario Usa el índice de la lista y la clave del diccionario:
+
+python
+Copiar código
+print(lista_de_diccionarios[1]["nombre"])  # Salida: Luis
+print(lista_de_diccionarios[0]["edad"])   # Salida: 28
+Modificar una lista de diccionarios
+Modificar un diccionario completo Reemplaza el diccionario en la posición deseada:
+
+python
+Copiar código
+lista_de_diccionarios[1] = {"id": 2, "nombre": "Carlos", "edad": 40}
+print(lista_de_diccionarios)
+Modificar un valor dentro de un diccionario Usa el índice de la lista y la clave del diccionario para actualizar un valor:
+
+python
+Copiar código
+lista_de_diccionarios[1]["edad"] = 36
+print(lista_de_diccionarios)
+Iterar sobre una lista de diccionarios
+Iterar por diccionarios completos
+
+python
+Copiar código
+for diccionario in lista_de_diccionarios:
+    print(diccionario)
+Iterar y acceder a valores específicos Usa las claves de los diccionarios para extraer información:
+
+python
+Copiar código
+for diccionario in lista_de_diccionarios:
+    print(f"ID: {diccionario['id']}, Nombre: {diccionario['nombre']}")
+Operaciones comunes
+Agregar un nuevo diccionario Usa append() para agregar un nuevo diccionario al final de la lista:
+
+python
+Copiar código
+lista_de_diccionarios.append({"id": 4, "nombre": "Clara", "edad": 29})
+print(lista_de_diccionarios)
+Eliminar un diccionario
+
+Por índice:
+python
+Copiar código
+del lista_de_diccionarios[1]  # Eliminar el segundo diccionario
+Por valor (requiere coincidencia completa):
+python
+Copiar código
+lista_de_diccionarios.remove({"id": 3, "nombre": "Pedro", "edad": 24})
+Filtrar una lista de diccionarios Usa comprensión de listas para filtrar:
+
+python
+Copiar código
+mayores_de_30 = [dic for dic in lista_de_diccionarios if dic["edad"] > 30]
+print(mayores_de_30)  # Filtra los diccionarios donde la edad es mayor a 30
+Ordenar una lista de diccionarios Usa sort() con la clave del diccionario:
+
+python
+Copiar código
+lista_de_diccionarios.sort(key=lambda x: x["edad"])  # Ordenar por edad
+print(lista_de_diccionarios)
+Ejemplo práctico
+Supongamos que estás trabajando con una lista de estudiantes y necesitas realizar varias operaciones.
+
+python
+Copiar código
+# Lista de diccionarios: Estudiantes
+estudiantes = [
+    {"id": 1, "nombre": "Ana", "edad": 28, "nota": 8.5},
+    {"id": 2, "nombre": "Luis", "edad": 22, "nota": 9.2},
+    {"id": 3, "nombre": "Pedro", "edad": 24, "nota": 7.8}
+]
+
+# Agregar un nuevo estudiante
+estudiantes.append({"id": 4, "nombre": "Clara", "edad": 21, "nota": 9.0})
+
+# Actualizar la nota de un estudiante
+for estudiante in estudiantes:
+    if estudiante["id"] == 3:
+        estudiante["nota"] = 8.0
+
+# Mostrar estudiantes con notas mayores a 8
+print("Estudiantes con nota mayor a 8:")
+for estudiante in estudiantes:
+    if estudiante["nota"] > 8:
+        print(f"ID: {estudiante['id']}, Nombre: {estudiante['nombre']}")
+
+# Ordenar por edad
+estudiantes.sort(key=lambda x: x["edad"])
+print("Estudiantes ordenados por edad:")
+for estudiante in estudiantes:
+    print(estudiante)
+Conclusión
+Las listas de diccionarios son ideales para trabajar con colecciones de datos estructurados. Ofrecen gran flexibilidad para almacenar, acceder y manipular datos. Con comprensión de listas y funciones como sort o filter, puedes realizar operaciones complejas de manera eficiente.
+
+
+
+
+TUPLA DE LISTAS
+
+Una tupla de listas en Python es simplemente una tupla cuyos elementos son listas. Esto permite combinar las propiedades de las tuplas (inmutables) con las de las listas (mutables). Es útil si necesitas una estructura de datos en la que las posiciones de las listas no cambien, pero sus contenidos sí puedan modificarse.
+
+Cómo crear una tupla de listas
+Definición básica Usa paréntesis () para la tupla y corchetes [] para las listas:
+
+python
+Copiar código
+tupla_de_listas = ([1, 2, 3], ["a", "b", "c"], [True, False, True])
+Creación dinámica Puedes usar bucles para crear listas dentro de una tupla:
+
+python
+Copiar código
+tupla_de_listas = (list(range(1, 4)), [chr(i) for i in range(97, 100)], [i % 2 == 0 for i in range(3)])
+print(tupla_de_listas)
+# Salida: ([1, 2, 3], ['a', 'b', 'c'], [False, True, False])
+Acceso a elementos en una tupla de listas
+Acceder a una lista específica Usa el índice de la tupla para seleccionar una lista:
+
+python
+Copiar código
+print(tupla_de_listas[0])  # Salida: [1, 2, 3]
+print(tupla_de_listas[1])  # Salida: ["a", "b", "c"]
+Acceder a un elemento dentro de una lista Usa un índice doble: el primero para seleccionar la lista en la tupla y el segundo para seleccionar el elemento en la lista:
+
+python
+Copiar código
+print(tupla_de_listas[0][1])  # Salida: 2 (segundo elemento de la primera lista)
+print(tupla_de_listas[1][2])  # Salida: "c" (tercer elemento de la segunda lista)
+Modificar una tupla de listas
+Aunque las tuplas son inmutables (no puedes agregar, eliminar o modificar directamente sus elementos), los elementos dentro de las listas que contiene sí pueden modificarse.
+
+Modificar elementos dentro de una lista
+
+python
+Copiar código
+tupla_de_listas[0][1] = 99  # Cambia el segundo elemento de la primera lista
+print(tupla_de_listas)  # Salida: ([1, 99, 3], ["a", "b", "c"], [True, False, True])
+Agregar o eliminar elementos de una lista Puedes usar métodos de listas como append() o pop():
+
+python
+Copiar código
+tupla_de_listas[1].append("d")  # Agregar un elemento a la segunda lista
+print(tupla_de_listas)  # Salida: ([1, 99, 3], ["a", "b", "c", "d"], [True, False, True])
+
+tupla_de_listas[2].remove(True)  # Eliminar un elemento de la tercera lista
+print(tupla_de_listas)  # Salida: ([1, 99, 3], ["a", "b", "c", "d"], [False, True])
+Iterar sobre una tupla de listas
+Iterar por listas completas
+
+python
+Copiar código
+for lista in tupla_de_listas:
+    print(lista)
+Iterar sobre elementos dentro de las listas Usa un bucle anidado:
+
+python
+Copiar código
+for lista in tupla_de_listas:
+    for elemento in lista:
+        print(elemento, end=" ")
+# Salida: 1 99 3 a b c d False True
+Operaciones comunes
+Reemplazar una lista completa Aunque no puedes modificar directamente la tupla, puedes crear una nueva con las listas modificadas:
+
+python
+Copiar código
+nueva_tupla = (tupla_de_listas[0], ["x", "y", "z"], tupla_de_listas[2])
+print(nueva_tupla)  # Salida: ([1, 99, 3], ["x", "y", "z"], [False, True])
+Tamaño de las listas Puedes obtener el tamaño de cada lista usando len():
+
+python
+Copiar código
+for i, lista in enumerate(tupla_de_listas):
+    print(f"Tamaño de la lista {i}: {len(lista)}")
+Buscar un elemento en una lista Usa operadores como in o métodos como index():
+
+python
+Copiar código
+if 99 in tupla_de_listas[0]:
+    print("99 está en la primera lista")
+Ejemplo práctico
+Supongamos que tienes una tupla de listas que representa datos de estudiantes: nombres, edades y notas.
+
+python
+Copiar código
+# Tupla de listas: nombres, edades, notas
+estudiantes = (["Ana", "Luis", "Pedro"], [28, 35, 24], [8.5, 9.2, 7.8])
+
+# Agregar un nuevo estudiante
+estudiantes[0].append("Clara")
+estudiantes[1].append(21)
+estudiantes[2].append(9.0)
+
+# Actualizar la nota de un estudiante
+estudiantes[2][2] = 8.0  # Cambiar la nota de Pedro
+
+# Mostrar información de los estudiantes
+for i in range(len(estudiantes[0])):
+    print(f"Nombre: {estudiantes[0][i]}, Edad: {estudiantes[1][i]}, Nota: {estudiantes[2][i]}")
+
+# Filtrar estudiantes con notas mayores a 8
+print("Estudiantes con nota mayor a 8:")
+for i in range(len(estudiantes[0])):
+    if estudiantes[2][i] > 8:
+        print(f"Nombre: {estudiantes[0][i]}, Nota: {estudiantes[2][i]}")
+Conclusión
+Las tuplas de listas son una estructura híbrida que combina la inmutabilidad de las tuplas y la mutabilidad de las listas. Esto es útil en situaciones donde necesitas que la estructura global sea fija (las posiciones de las listas no cambian), pero deseas la flexibilidad para modificar los datos dentro de esas listas.
+
+
+
+
+TUPLA DE TUPLAS
+
+Una tupla de tuplas en Python es simplemente una tupla cuyos elementos son otras tuplas. Al igual que las tuplas en general, los elementos dentro de la tupla son inmutables, pero puedes tener múltiples tuplas dentro de una tupla para organizar datos estructurados de manera jerárquica o agrupada.
+
+Cómo crear una tupla de tuplas
+Definición básica Usa paréntesis () para definir la tupla principal, y dentro de ella, otros paréntesis () para definir las tuplas internas.
+
+python
+Copiar código
+tupla_de_tuplas = ((1, 2, 3), (4, 5, 6), (7, 8, 9))
+Creación dinámica Puedes usar un bucle para crear dinámicamente una tupla de tuplas:
+
+python
+Copiar código
+tupla_de_tuplas = tuple((i, i+1, i+2) for i in range(1, 4))
+print(tupla_de_tuplas)
+# Salida: ((1, 2, 3), (2, 3, 4), (3, 4, 5))
+Acceso a elementos en una tupla de tuplas
+Acceder a una tupla específica Usa el índice para acceder a una tupla dentro de la tupla de tuplas:
+
+python
+Copiar código
+print(tupla_de_tuplas[0])  # Salida: (1, 2, 3)
+print(tupla_de_tuplas[1])  # Salida: (4, 5, 6)
+Acceder a un elemento dentro de una tupla interna Usa un índice doble: el primero para acceder a la tupla dentro de la tupla principal, y el segundo para acceder al elemento de esa tupla interna.
+
+python
+Copiar código
+print(tupla_de_tuplas[0][1])  # Salida: 2 (segundo elemento de la primera tupla)
+print(tupla_de_tuplas[2][0])  # Salida: 7 (primer elemento de la tercera tupla)
+Modificar una tupla de tuplas
+Aunque las tuplas son inmutables (no puedes cambiar un elemento de la tupla principal), puedes modificar las tuplas dentro de una tupla si las conviertes a una estructura mutable, como una lista. Sin embargo, la tupla en sí misma no puede ser modificada directamente.
+
+Modificar una tupla interna Para cambiar un valor dentro de una tupla interna, puedes convertir la tupla interna en una lista, modificarla, y luego convertirla de nuevo en tupla:
+python
+Copiar código
+tupla_modificada = list(tupla_de_tuplas[0])  # Convertir la primera tupla a lista
+tupla_modificada[1] = 99  # Cambiar el segundo elemento
+tupla_de_tuplas = (tuple(tupla_modificada),) + tupla_de_tuplas[1:]  # Crear una nueva tupla
+print(tupla_de_tuplas)  # Salida: ((1, 99, 3), (4, 5, 6), (7, 8, 9))
+Iterar sobre una tupla de tuplas
+Iterar por tuplas internas completas
+
+python
+Copiar código
+for tupla in tupla_de_tuplas:
+    print(tupla)
+Iterar y acceder a elementos dentro de las tuplas internas Puedes usar un bucle anidado para iterar sobre los elementos dentro de cada tupla interna:
+
+python
+Copiar código
+for tupla in tupla_de_tuplas:
+    for elemento in tupla:
+        print(elemento, end=" ")
+# Salida: 1 2 3 4 5 6 7 8 9
+Operaciones comunes
+Acceder al tamaño de las tuplas internas Usa len() para obtener el tamaño de las tuplas internas:
+
+python
+Copiar código
+for tupla in tupla_de_tuplas:
+    print(len(tupla))  # Imprime el tamaño de cada tupla interna
+Buscar un elemento en las tuplas internas Usa in o el método index():
+
+python
+Copiar código
+if 5 in tupla_de_tuplas[1]:
+    print("5 está en la segunda tupla")
+Ejemplo práctico
+Supongamos que estás trabajando con una tupla de tuplas que representa coordenadas en un sistema 3D (x, y, z):
+
+python
+Copiar código
+# Tupla de tuplas: Coordenadas en 3D
+coordenadas = ((1, 2, 3), (4, 5, 6), (7, 8, 9))
+
+# Acceder a una coordenada específica
+print(coordenadas[0])  # Salida: (1, 2, 3)
+
+# Acceder a un valor dentro de la tupla
+print(coordenadas[2][1])  # Salida: 8 (segundo valor de la tercera tupla)
+
+# Iterar sobre todas las coordenadas
+for i, coordenada in enumerate(coordenadas):
+    print(f"Coordenada {i + 1}: {coordenada}")
+
+# Modificar la segunda coordenada (convertir la tupla interna a lista, modificar, y reconstruir la tupla)
+coordenada_modificada = list(coordenadas[1])  # Convertir a lista
+coordenada_modificada[1] = 99  # Cambiar el segundo valor
+coordenadas = (coordenadas[0], tuple(coordenada_modificada), coordenadas[2])  # Crear una nueva tupla
+print(coordenadas)  # Salida: ((1, 2, 3), (4, 99, 6), (7, 8, 9))
+Conclusión
+Una tupla de tuplas es una estructura útil cuando necesitas agrupar varios conjuntos de datos (tuplas) dentro de una tupla más grande. Aunque las tuplas son inmutables, las tuplas internas pueden contener datos mutables (como listas), lo que proporciona un equilibrio entre la inmutabilidad y la flexibilidad. Para manipular los elementos dentro de las tuplas, generalmente tendrás que convertirlas a listas y luego reconstruir la tupla.
+
+
+
+
+TUPLAS DE DICCIONARIOS
+
+Una tupla de diccionarios en Python es simplemente una tupla cuyos elementos son diccionarios. Al igual que las tuplas, esta estructura es inmutable, lo que significa que no puedes agregar, eliminar o cambiar las tuplas dentro de la tupla de diccionarios. Sin embargo, puedes modificar los valores dentro de los diccionarios ya que son estructuras mutables.
+
+Cómo crear una tupla de diccionarios
+Definición básica Usa paréntesis () para definir la tupla, y llaves {} para los diccionarios:
+
+python
+Copiar código
+tupla_de_diccionarios = (
+    {"id": 1, "nombre": "Ana", "edad": 28},
+    {"id": 2, "nombre": "Luis", "edad": 35},
+    {"id": 3, "nombre": "Pedro", "edad": 24}
+)
+Creación dinámica Puedes crear una tupla de diccionarios usando un bucle o comprensión de tuplas:
+
+python
+Copiar código
+tupla_de_diccionarios = tuple(
+    {"id": i, "nombre": f"Persona {i}", "edad": 20 + i} for i in range(1, 4)
+)
+print(tupla_de_diccionarios)
+# Salida: ({'id': 1, 'nombre': 'Persona 1', 'edad': 21}, {'id': 2, 'nombre': 'Persona 2', 'edad': 22}, {'id': 3, 'nombre': 'Persona 3', 'edad': 23})
+Acceder a elementos en una tupla de diccionarios
+Acceder a un diccionario específico Usa el índice de la tupla para acceder a un diccionario dentro de la tupla:
+
+python
+Copiar código
+print(tupla_de_diccionarios[0])  # Salida: {'id': 1, 'nombre': 'Ana', 'edad': 28}
+Acceder a un valor dentro de un diccionario Usa el índice de la tupla y la clave del diccionario para acceder al valor:
+
+python
+Copiar código
+print(tupla_de_diccionarios[1]["nombre"])  # Salida: "Luis"
+print(tupla_de_diccionarios[2]["edad"])    # Salida: 24
+Modificar una tupla de diccionarios
+Aunque las tuplas son inmutables, los diccionarios dentro de la tupla son mutables, por lo que puedes modificar los valores dentro de esos diccionarios. Sin embargo, no puedes agregar o eliminar diccionarios de la tupla misma.
+
+Modificar un valor dentro de un diccionario Puedes acceder al diccionario dentro de la tupla y cambiar sus valores usando la clave:
+
+python
+Copiar código
+tupla_de_diccionarios[0]["edad"] = 29  # Cambiar el valor de 'edad' en el primer diccionario
+print(tupla_de_diccionarios)  # Salida: ({'id': 1, 'nombre': 'Ana', 'edad': 29}, {'id': 2, 'nombre': 'Luis', 'edad': 35}, {'id': 3, 'nombre': 'Pedro', 'edad': 24})
+Agregar un nuevo valor a un diccionario También puedes agregar una nueva clave-valor a un diccionario:
+
+python
+Copiar código
+tupla_de_diccionarios[2]["ciudad"] = "Madrid"
+print(tupla_de_diccionarios)  # Salida: ({'id': 1, 'nombre': 'Ana', 'edad': 29}, {'id': 2, 'nombre': 'Luis', 'edad': 35}, {'id': 3, 'nombre': 'Pedro', 'edad': 24, 'ciudad': 'Madrid'})
+Iterar sobre una tupla de diccionarios
+Iterar por diccionarios completos Puedes usar un bucle for para recorrer la tupla y acceder a cada diccionario:
+
+python
+Copiar código
+for diccionario in tupla_de_diccionarios:
+    print(diccionario)
+Iterar y acceder a valores específicos dentro de los diccionarios Si deseas acceder a valores específicos dentro de cada diccionario, puedes usar las claves:
+
+python
+Copiar código
+for diccionario in tupla_de_diccionarios:
+    print(f"Nombre: {diccionario['nombre']}, Edad: {diccionario['edad']}")
+Operaciones comunes con tuplas de diccionarios
+Acceder al tamaño de los diccionarios Puedes usar len() para obtener el número de claves en cada diccionario dentro de la tupla:
+
+python
+Copiar código
+for diccionario in tupla_de_diccionarios:
+    print(len(diccionario))  # Muestra la cantidad de claves en cada diccionario
+Buscar una clave en un diccionario Usa el operador in para verificar si una clave existe en un diccionario:
+
+python
+Copiar código
+if "edad" in tupla_de_diccionarios[1]:
+    print("La clave 'edad' está presente en el segundo diccionario.")
+Filtrar diccionarios por valores Puedes utilizar comprensión de tuplas para filtrar los diccionarios con una condición:
+
+python
+Copiar código
+adultos = tuple(dic for dic in tupla_de_diccionarios if dic["edad"] >= 30)
+print(adultos)
+# Salida: ({'id': 2, 'nombre': 'Luis', 'edad': 35})
+Ejemplo práctico
+Supongamos que tienes una tupla de diccionarios que representan datos de estudiantes, y deseas realizar algunas operaciones sobre ella.
+
+python
+Copiar código
+# Tupla de diccionarios: Estudiantes
+estudiantes = (
+    {"id": 1, "nombre": "Ana", "edad": 28, "nota": 8.5},
+    {"id": 2, "nombre": "Luis", "edad": 22, "nota": 9.2},
+    {"id": 3, "nombre": "Pedro", "edad": 24, "nota": 7.8}
+)
+
+# Modificar la edad de un estudiante
+estudiantes = (
+    {**estudiantes[0], "edad": 29},  # Cambiar la edad de Ana
+    estudiantes[1],  # Mantener a Luis igual
+    estudiantes[2]   # Mantener a Pedro igual
+)
+
+# Agregar una nueva clave-valor a un diccionario (nuevo campo 'ciudad')
+estudiantes = (
+    {**estudiantes[0], "ciudad": "Madrid"},
+    {**estudiantes[1], "ciudad": "Barcelona"},
+    {**estudiantes[2], "ciudad": "Valencia"}
+)
+
+# Filtrar estudiantes con una nota superior a 8
+estudiantes_aptos = tuple(est for est in estudiantes if est["nota"] > 8)
+print(estudiantes_aptos)
+# Salida: ({'id': 2, 'nombre': 'Luis', 'edad': 22, 'nota': 9.2, 'ciudad': 'Barcelona'})
+Conclusión
+Las tuplas de diccionarios son una excelente manera de agrupar colecciones de datos inmutables (como las tuplas) que contienen datos estructurados (como los diccionarios). Aunque las tuplas son inmutables, puedes modificar los valores dentro de los diccionarios que contienen. Esto las convierte en una estructura útil para organizar datos que no cambian, pero cuyos detalles internos pueden ser modificados cuando sea necesario.
+
+
+
+
+DICCIONARIO DE LISTAS
+
+Un diccionario de listas en Python es una estructura de datos en la que las claves del diccionario están asociadas a listas como valores. Este tipo de estructura es útil cuando deseas almacenar varios elementos bajo una misma clave, y esos elementos se organizan en una lista.
+
+Cómo crear un diccionario de listas
+Definición básica Puedes crear un diccionario donde las claves son de cualquier tipo (por ejemplo, cadenas, números, etc.) y los valores son listas.
+
+python
+Copiar código
+diccionario_de_listas = {
+    "frutas": ["manzana", "plátano", "cereza"],
+    "colores": ["rojo", "azul", "verde"],
+    "edades": [25, 30, 35]
+}
+Creación dinámica Puedes usar un bucle o comprensión de diccionarios para agregar listas a cada clave del diccionario.
+
+python
+Copiar código
+diccionario_de_listas = {
+    "clave1": [x for x in range(1, 4)],
+    "clave2": ["a", "b", "c"],
+    "clave3": [True, False]
+}
+print(diccionario_de_listas)
+# Salida: {'clave1': [1, 2, 3], 'clave2': ['a', 'b', 'c'], 'clave3': [True, False]}
+Acceder a elementos en un diccionario de listas
+Acceder a una lista específica usando la clave Puedes acceder a una lista completa utilizando la clave correspondiente.
+
+python
+Copiar código
+print(diccionario_de_listas["frutas"])  # Salida: ['manzana', 'plátano', 'cereza']
+Acceder a un elemento dentro de una lista Para acceder a un elemento dentro de una lista asociada a una clave, puedes usar índices:
+
+python
+Copiar código
+print(diccionario_de_listas["colores"][0])  # Salida: 'rojo'
+print(diccionario_de_listas["edades"][2])   # Salida: 35
+Modificar un diccionario de listas
+Agregar un elemento a una lista en un diccionario Puedes agregar elementos a una lista dentro de un diccionario utilizando el método append() de las listas.
+
+python
+Copiar código
+diccionario_de_listas["frutas"].append("naranja")
+print(diccionario_de_listas["frutas"])  # Salida: ['manzana', 'plátano', 'cereza', 'naranja']
+Cambiar un valor en una lista Para cambiar un valor dentro de una lista, puedes hacerlo como con cualquier índice de lista.
+
+python
+Copiar código
+diccionario_de_listas["colores"][1] = "morado"
+print(diccionario_de_listas["colores"])  # Salida: ['rojo', 'morado', 'verde']
+Eliminar un valor en una lista Usa remove() para eliminar un valor específico de la lista o pop() para eliminar un elemento en una posición dada.
+
+python
+Copiar código
+diccionario_de_listas["edades"].remove(30)  # Eliminar el valor 30 de la lista
+print(diccionario_de_listas["edades"])      # Salida: [25, 35]
+Agregar una nueva lista a una nueva clave Puedes añadir nuevas claves con listas vacías o con contenido.
+
+python
+Copiar código
+diccionario_de_listas["nombres"] = ["Juan", "Ana", "Luis"]
+print(diccionario_de_listas["nombres"])  # Salida: ['Juan', 'Ana', 'Luis']
+Iterar sobre un diccionario de listas
+Iterar sobre las claves y las listas Puedes usar un bucle for para recorrer todas las claves y sus listas asociadas:
+
+python
+Copiar código
+for clave, lista in diccionario_de_listas.items():
+    print(f"Clave: {clave}, Lista: {lista}")
+Iterar sobre los elementos dentro de las listas Si deseas recorrer cada lista y acceder a los elementos dentro de ellas, puedes usar un bucle anidado:
+
+python
+Copiar código
+for clave, lista in diccionario_de_listas.items():
+    print(f"Clave: {clave}")
+    for elemento in lista:
+        print(f"  Elemento: {elemento}")
+Operaciones comunes con un diccionario de listas
+Agregar varios elementos a una lista Puedes usar extend() para agregar varios elementos a una lista a la vez:
+
+python
+Copiar código
+diccionario_de_listas["frutas"].extend(["pera", "kiwi"])
+print(diccionario_de_listas["frutas"])  # Salida: ['manzana', 'plátano', 'cereza', 'naranja', 'pera', 'kiwi']
+Obtener el tamaño de las listas Usa len() para obtener la cantidad de elementos en una lista asociada a una clave:
+
+python
+Copiar código
+for clave, lista in diccionario_de_listas.items():
+    print(f"Cantidad de elementos en {clave}: {len(lista)}")
+Verificar si un valor está en una lista Puedes verificar si un valor está presente en la lista de un diccionario usando el operador in:
+
+python
+Copiar código
+if "plátano" in diccionario_de_listas["frutas"]:
+    print("Plátano está en la lista de frutas.")
+Ejemplo práctico
+Supongamos que tienes un diccionario de listas que almacena información sobre libros, con claves como "títulos", "autores" y "años", y deseas realizar algunas operaciones:
+
+python
+Copiar código
+# Diccionario de listas con información de libros
+libros = {
+    "títulos": ["Cien años de soledad", "1984", "El gran Gatsby"],
+    "autores": ["Gabriel García Márquez", "George Orwell", "F. Scott Fitzgerald"],
+    "años": [1967, 1949, 1925]
+}
+
+# Agregar un nuevo libro
+libros["títulos"].append("Don Quijote de la Mancha")
+libros["autores"].append("Miguel de Cervantes")
+libros["años"].append(1605)
+
+# Cambiar el año de un libro
+libros["años"][1] = 1950  # Cambiar el año de 1984
+
+# Eliminar un libro
+libros["títulos"].remove("1984")
+libros["autores"].remove("George Orwell")
+libros["años"].remove(1950)
+
+# Iterar sobre los libros
+for i in range(len(libros["títulos"])):
+    print(f"Título: {libros['títulos'][i]}, Autor: {libros['autores'][i]}, Año: {libros['años'][i]}")
+Salida:
+
+yaml
+Copiar código
+Título: Cien años de soledad, Autor: Gabriel García Márquez, Año: 1967
+Título: El gran Gatsby, Autor: F. Scott Fitzgerald, Año: 1925
+Título: Don Quijote de la Mancha, Autor: Miguel de Cervantes, Año: 1605
+Conclusión
+Un diccionario de listas en Python es una estructura poderosa que te permite asociar múltiples valores a una clave, organizándolos en listas. Puedes agregar, eliminar o modificar elementos dentro de estas listas y acceder a los datos con facilidad. Esta estructura es útil cuando necesitas manejar conjuntos de datos que comparten una clave común pero contienen múltiples elementos.
+
+
+
+
+DICCIONARIO DE TUPLAS
+
+Un diccionario de tuplas en Python es una estructura de datos donde las claves del diccionario están asociadas a tuplas como valores. Al igual que con los diccionarios y las listas, las tuplas son inmutables, lo que significa que no puedes modificar sus elementos una vez que se han creado, pero puedes acceder a ellos y usarlos dentro de un diccionario.
+
+Cómo crear un diccionario de tuplas
+Definición básica Puedes crear un diccionario donde las claves sean cualquier tipo de dato (por ejemplo, cadenas, números) y los valores sean tuplas. Las tuplas se definen con paréntesis ().
+
+python
+Copiar código
+diccionario_de_tuplas = {
+    "coordenadas": (10, 20),
+    "punto": (30, 40),
+    "dimensiones": (5, 10)
+}
+Creación dinámica Puedes utilizar un bucle o comprensión de diccionarios para crear un diccionario cuyas claves tengan tuplas como valores.
+
+python
+Copiar código
+diccionario_de_tuplas = {
+    f"clave{i}": (i, i + 1) for i in range(1, 4)
+}
+print(diccionario_de_tuplas)
+# Salida: {'clave1': (1, 2), 'clave2': (2, 3), 'clave3': (3, 4)}
+Acceder a elementos en un diccionario de tuplas
+Acceder a una tupla usando la clave Puedes acceder a la tupla asociada a una clave utilizando la sintaxis de diccionario ([]).
+
+python
+Copiar código
+print(diccionario_de_tuplas["coordenadas"])  # Salida: (10, 20)
+Acceder a un elemento específico dentro de la tupla Al igual que con las listas, puedes acceder a un elemento dentro de la tupla utilizando el índice de la tupla (ya que las tuplas son indexadas).
+
+python
+Copiar código
+print(diccionario_de_tuplas["punto"][0])  # Salida: 30
+print(diccionario_de_tuplas["dimensiones"][1])  # Salida: 10
+Modificar un diccionario de tuplas
+Aunque las tuplas son inmutables, puedes cambiar la tupla completa en un diccionario. No puedes modificar el contenido de una tupla directamente, pero sí puedes asignar una nueva tupla a una clave.
+
+Reemplazar una tupla completa Puedes reemplazar una tupla con una nueva tupla usando la clave del diccionario.
+
+python
+Copiar código
+diccionario_de_tuplas["coordenadas"] = (100, 200)
+print(diccionario_de_tuplas["coordenadas"])  # Salida: (100, 200)
+Crear una nueva tupla y asignarla Si deseas agregar un valor a una tupla, deberás crear una nueva tupla que contenga los elementos anteriores más el nuevo valor.
+
+python
+Copiar código
+diccionario_de_tuplas["punto"] = diccionario_de_tuplas["punto"] + (50,)
+print(diccionario_de_tuplas["punto"])  # Salida: (30, 40, 50)
+Operaciones comunes con un diccionario de tuplas
+Obtener el tamaño de las tuplas Puedes usar la función len() para obtener la cantidad de elementos dentro de una tupla en el diccionario.
+
+python
+Copiar código
+for clave, tupla in diccionario_de_tuplas.items():
+    print(f"Tupla asociada a {clave} tiene {len(tupla)} elementos.")
+Verificar si un elemento está en la tupla Puedes usar el operador in para verificar si un valor está presente dentro de una tupla en el diccionario.
+
+python
+Copiar código
+if 20 in diccionario_de_tuplas["coordenadas"]:
+    print("20 está en las coordenadas.")
+Recorrer un diccionario de tuplas Puedes iterar sobre las claves y las tuplas del diccionario:
+
+python
+Copiar código
+for clave, tupla in diccionario_de_tuplas.items():
+    print(f"Clave: {clave}, Tupla: {tupla}")
+Ejemplo práctico
+Imagina que tienes un diccionario que almacena las posiciones de varias personas en un plano 2D, y deseas realizar algunas operaciones con este diccionario de tuplas.
+
+python
+Copiar código
+# Diccionario de tuplas con coordenadas
+posiciones = {
+    "persona1": (10, 20),
+    "persona2": (30, 40),
+    "persona3": (50, 60)
+}
+
+# Acceder a una tupla (coordenadas) usando la clave
+print(posiciones["persona1"])  # Salida: (10, 20)
+
+# Acceder a un elemento específico de la tupla
+print(posiciones["persona2"][1])  # Salida: 40
+
+# Modificar la coordenada de una persona (reemplazar tupla)
+posiciones["persona3"] = (70, 80)
+print(posiciones["persona3"])  # Salida: (70, 80)
+
+# Añadir un nuevo elemento a una tupla (creando una nueva tupla)
+posiciones["persona1"] = posiciones["persona1"] + (5,)
+print(posiciones["persona1"])  # Salida: (10, 20, 5)
+
+# Recorrer el diccionario y mostrar las posiciones
+for persona, coordenadas in posiciones.items():
+    print(f"{persona} está en las coordenadas {coordenadas}")
+Salida:
+
+scss
+Copiar código
+(10, 20)
+40
+(70, 80)
+persona1 está en las coordenadas (10, 20, 5)
+persona2 está en las coordenadas (30, 40)
+persona3 está en las coordenadas (70, 80)
+Conclusión
+Un diccionario de tuplas en Python es útil cuando necesitas asociar claves a tuplas, lo cual te permite trabajar con un conjunto de valores inmutables para cada clave. Aunque las tuplas son inmutables, puedes reemplazar una tupla en un diccionario o agregar nuevos elementos creando una nueva tupla. Esto hace que los diccionarios de tuplas sean adecuados para almacenar datos relacionados que no cambian con frecuencia.
+
+
+
+
+DICCIONARIO DE DICCIONARIO
+
+Un diccionario de diccionarios en Python es una estructura de datos que permite almacenar diccionarios dentro de otros diccionarios. Cada clave del diccionario principal apunta a otro diccionario, lo que te da una forma jerárquica de organizar datos. Esta estructura es útil cuando necesitas almacenar y organizar datos complejos.
+
+Cómo crear un diccionario de diccionarios
+Definición básica Puedes crear un diccionario donde las claves sean de cualquier tipo y los valores sean otros diccionarios.
+
+python
+Copiar código
+diccionario_de_diccionarios = {
+    "persona1": {"nombre": "Juan", "edad": 25, "ciudad": "Madrid"},
+    "persona2": {"nombre": "Ana", "edad": 30, "ciudad": "Barcelona"},
+    "persona3": {"nombre": "Luis", "edad": 28, "ciudad": "Valencia"}
+}
+En este caso, el diccionario principal tiene como claves "persona1", "persona2", "persona3", y cada clave está asociada a un diccionario con los detalles de cada persona.
+
+Creación dinámica Puedes construir un diccionario de diccionarios de manera dinámica utilizando bucles o comprensiones de diccionarios.
+
+python
+Copiar código
+diccionario_de_diccionarios = {
+    f"persona{i}": {"nombre": f"Persona {i}", "edad": 20 + i, "ciudad": f"Ciudad {i}"} 
+    for i in range(1, 4)
+}
+print(diccionario_de_diccionarios)
+# Salida: {'persona1': {'nombre': 'Persona 1', 'edad': 21, 'ciudad': 'Ciudad 1'}, 
+#          'persona2': {'nombre': 'Persona 2', 'edad': 22, 'ciudad': 'Ciudad 2'},
+#          'persona3': {'nombre': 'Persona 3', 'edad': 23, 'ciudad': 'Ciudad 3'}}
+Acceder a elementos en un diccionario de diccionarios
+Acceder a un diccionario interno usando la clave principal Para acceder al diccionario interno de una clave, utilizas la clave principal del diccionario.
+
+python
+Copiar código
+print(diccionario_de_diccionarios["persona1"])  
+# Salida: {'nombre': 'Juan', 'edad': 25, 'ciudad': 'Madrid'}
+Acceder a un valor dentro de un diccionario interno Si deseas acceder a un valor específico dentro del diccionario interno, puedes hacerlo encadenando los accesos a las claves.
+
+python
+Copiar código
+print(diccionario_de_diccionarios["persona1"]["nombre"])  # Salida: 'Juan'
+print(diccionario_de_diccionarios["persona2"]["edad"])    # Salida: 30
+print(diccionario_de_diccionarios["persona3"]["ciudad"])  # Salida: 'Valencia'
+Modificar un diccionario de diccionarios
+Modificar un valor dentro de un diccionario interno Puedes modificar los valores dentro de un diccionario de diccionarios utilizando las claves correspondientes.
+
+python
+Copiar código
+diccionario_de_diccionarios["persona1"]["edad"] = 26
+print(diccionario_de_diccionarios["persona1"]["edad"])  # Salida: 26
+Agregar una nueva clave dentro de un diccionario interno Puedes agregar una nueva clave a un diccionario interno de esta manera:
+
+python
+Copiar código
+diccionario_de_diccionarios["persona2"]["profesion"] = "Ingeniera"
+print(diccionario_de_diccionarios["persona2"])  
+# Salida: {'nombre': 'Ana', 'edad': 30, 'ciudad': 'Barcelona', 'profesion': 'Ingeniera'}
+Agregar un nuevo diccionario interno Puedes agregar un nuevo diccionario interno a una nueva clave del diccionario principal.
+
+python
+Copiar código
+diccionario_de_diccionarios["persona4"] = {"nombre": "Carlos", "edad": 32, "ciudad": "Sevilla"}
+print(diccionario_de_diccionarios["persona4"])  
+# Salida: {'nombre': 'Carlos', 'edad': 32, 'ciudad': 'Sevilla'}
+Eliminar elementos de un diccionario de diccionarios
+Eliminar una clave dentro de un diccionario interno Puedes eliminar una clave específica dentro de un diccionario interno usando del.
+
+python
+Copiar código
+del diccionario_de_diccionarios["persona3"]["ciudad"]
+print(diccionario_de_diccionarios["persona3"])  
+# Salida: {'nombre': 'Luis', 'edad': 28} (sin la clave "ciudad")
+Eliminar un diccionario completo dentro del diccionario principal Puedes eliminar un diccionario completo (es decir, una clave principal) utilizando del.
+
+python
+Copiar código
+del diccionario_de_diccionarios["persona2"]
+print(diccionario_de_diccionarios)  
+# Salida: {'persona1': {'nombre': 'Juan', 'edad': 25, 'ciudad': 'Madrid'}, 
+#          'persona3': {'nombre': 'Luis', 'edad': 28}}
+Iterar sobre un diccionario de diccionarios
+Recorrer las claves y los diccionarios internos Puedes usar un bucle for para recorrer el diccionario principal y acceder a cada diccionario interno.
+
+python
+Copiar código
+for clave, diccionario in diccionario_de_diccionarios.items():
+    print(f"Clave: {clave}, Diccionario: {diccionario}")
+Recorrer las claves y los valores dentro de los diccionarios internos También puedes iterar dentro de cada diccionario interno para acceder a sus claves y valores.
+
+python
+Copiar código
+for clave, diccionario in diccionario_de_diccionarios.items():
+    print(f"Datos de {clave}:")
+    for subclave, valor in diccionario.items():
+        print(f"  {subclave}: {valor}")
+Ejemplo práctico
+Supongamos que tienes un diccionario de diccionarios que almacena información de empleados y sus departamentos, y deseas realizar algunas operaciones.
+
+python
+Copiar código
+# Diccionario de diccionarios con información de empleados
+empleados = {
+    "emp1": {"nombre": "Juan", "departamento": "Ventas", "edad": 25},
+    "emp2": {"nombre": "Ana", "departamento": "TI", "edad": 30},
+    "emp3": {"nombre": "Luis", "departamento": "Marketing", "edad": 28}
+}
+
+# Acceder a los datos de un empleado
+print(empleados["emp1"])  
+# Salida: {'nombre': 'Juan', 'departamento': 'Ventas', 'edad': 25}
+
+# Acceder a un valor específico de un empleado
+print(empleados["emp2"]["edad"])  
+# Salida: 30
+
+# Modificar la edad de un empleado
+empleados["emp3"]["edad"] = 29
+print(empleados["emp3"]["edad"])  
+# Salida: 29
+
+# Agregar un nuevo empleado
+empleados["emp4"] = {"nombre": "Carlos", "departamento": "RRHH", "edad": 35}
+print(empleados["emp4"])  
+# Salida: {'nombre': 'Carlos', 'departamento': 'RRHH', 'edad': 35}
+
+# Eliminar un empleado
+del empleados["emp2"]
+print(empleados)  
+# Salida: {'emp1': {'nombre': 'Juan', 'departamento': 'Ventas', 'edad': 25}, 
+#          'emp3': {'nombre': 'Luis', 'departamento': 'Marketing', 'edad': 29}, 
+#          'emp4': {'nombre': 'Carlos', 'departamento': 'RRHH', 'edad': 35}}
+
+# Iterar sobre los empleados y mostrar sus datos
+for emp_id, datos in empleados.items():
+    print(f"{emp_id}:")
+    for clave, valor in datos.items():
+        print(f"  {clave}: {valor}")
+Salida:
+
+yaml
+Copiar código
+{'nombre': 'Juan', 'departamento': 'Ventas', 'edad': 25}
+30
+29
+{'nombre': 'Carlos', 'departamento': 'RRHH', 'edad': 35}
+{'emp1': {'nombre': 'Juan', 'departamento': 'Ventas', 'edad': 25}, 
+ 'emp3': {'nombre': 'Luis', 'departamento': 'Marketing', 'edad': 29}, 
+ 'emp4': {'nombre': 'Carlos', 'departamento': 'RRHH', 'edad': 35}}
+
+emp1:
+  nombre: Juan
+  departamento: Ventas
+  edad: 25
+emp3:
+  nombre: Luis
+  departamento: Marketing
+  edad: 29
+emp4:
+  nombre: Carlos
+  departamento: RRHH
+  edad: 35
+Conclusión
+Un diccionario de diccionarios en Python es útil cuando necesitas organizar datos jerárquicamente. Puedes acceder, modificar, agregar o eliminar diccionarios internos utilizando las claves correspondientes, lo que facilita la gestión de datos complejos y estructurados. Esta estructura es ideal para almacenar información relacionada con diferentes entidades que tienen
+
+
+
+PROGRAMACION FUNCIONAL
+
+1. Funciones Lambda
+Una función lambda en Python es una función anónima, lo que significa que no tiene un nombre. Se utiliza principalmente cuando necesitas una función pequeña y rápida. La sintaxis es compacta, y se usa en lugares donde puedes pasar una función como argumento, por ejemplo, en funciones de orden superior como map(), filter(), y sorted().
+
+Sintaxis básica:
+python
+Copiar código
+lambda argumentos: expresión
+lambda: La palabra clave que define la función anónima.
+argumentos: Los parámetros de entrada de la función (puede ser uno o más).
+expresión: La operación que realiza la función. Esta expresión se evalúa y se devuelve automáticamente como resultado.
+Ejemplos:
+Función lambda que multiplica un número por 2:
+
+python
+Copiar código
+multiplicar_por_2 = lambda x: x * 2
+print(multiplicar_por_2(4))  # Salida: 8
+Función lambda que suma dos números:
+
+python
+Copiar código
+sumar = lambda x, y: x + y
+print(sumar(3, 5))  # Salida: 8
+Función lambda que devuelve el cuadrado de un número:
+
+python
+Copiar código
+cuadrado = lambda x: x ** 2
+print(cuadrado(5))  # Salida: 25
+Las funciones lambda son útiles cuando necesitas una función simple, y no quieres escribir toda una definición de función con def.
+
+2. Función map()
+La función map() toma una función y un iterable (como una lista o una tupla) y aplica esa función a cada elemento del iterable. El resultado es un nuevo iterable (un objeto de tipo map) que contiene los resultados de aplicar la función.
+
+Sintaxis:
+python
+Copiar código
+map(función, iterable)
+función: La función que se va a aplicar a cada elemento del iterable.
+iterable: La secuencia de elementos sobre la cual aplicar la función.
+map() devuelve un objeto map, que es un iterable. Si deseas convertirlo en una lista o en otro tipo de colección, puedes hacerlo fácilmente.
+
+Ejemplo:
+Supón que tienes una lista de números y quieres obtener sus cuadrados:
+
+python
+Copiar código
+numeros = [1, 2, 3, 4, 5]
+cuadrados = map(lambda x: x ** 2, numeros)
+print(list(cuadrados))  # Salida: [1, 4, 9, 16, 25]
+En este ejemplo, la función lambda x: x ** 2 se aplica a cada número de la lista numeros, y se obtiene una nueva lista con los cuadrados.
+
+3. Función filter()
+La función filter() filtra los elementos de un iterable, manteniendo solo aquellos para los cuales la función que se pasa devuelve True. Es decir, esta función permite aplicar un filtro a los elementos del iterable.
+
+Sintaxis:
+python
+Copiar código
+filter(función, iterable)
+función: La función que se aplica a cada elemento del iterable. Esta función debe devolver un valor booleano (True o False).
+iterable: La secuencia de elementos sobre la cual aplicar la función.
+filter() devuelve un objeto filter, que también es un iterable. Puedes convertirlo en una lista o en otro tipo de colección.
+
+Ejemplo:
+Supón que tienes una lista de números y quieres filtrar solo los números pares:
+
+python
+Copiar código
+numeros = [1, 2, 3, 4, 5, 6]
+pares = filter(lambda x: x % 2 == 0, numeros)
+print(list(pares))  # Salida: [2, 4, 6]
+En este caso, la función lambda x: x % 2 == 0 devuelve True para los números pares, y False para los impares. Como resultado, filter() devuelve una lista con los números pares.
+
+4. Función reduce()
+La función reduce(), que se encuentra en el módulo functools, aplica una función de manera acumulativa a los elementos de un iterable, de izquierda a derecha, de manera que se va reduciendo el iterable a un único valor.
+
+Sintaxis:
+python
+Copiar código
+from functools import reduce
+reduce(función, iterable)
+función: La función que se va a aplicar a los elementos. Debe tomar dos argumentos, y devolver un único valor.
+iterable: El iterable sobre el cual aplicar la función.
+El primer paso de reduce() aplica la función a los dos primeros elementos del iterable. Luego, aplica la función al resultado de esa operación y al siguiente elemento, y así sucesivamente hasta que se haya procesado todo el iterable.
+
+Ejemplo:
+Supón que tienes una lista de números y quieres obtener la suma total de todos los elementos:
+
+python
+Copiar código
+from functools import reduce
+
+numeros = [1, 2, 3, 4, 5]
+suma_total = reduce(lambda x, y: x + y, numeros)
+print(suma_total)  # Salida: 15
+En este ejemplo, reduce() toma la función lambda x, y: x + y y la aplica de manera acumulativa a la lista numeros. Primero suma 1 + 2, luego el resultado de esa suma con 3, y así sucesivamente, hasta obtener el resultado final de 15.
+
+5. List Comprehension
+List comprehension es una forma compacta y eficiente de crear listas en Python. Permite aplicar una expresión a cada elemento de un iterable y construir una lista con los resultados, todo en una sola línea.
+
+Sintaxis básica:
+python
+Copiar código
+[nueva_expresion for item in iterable]
+nueva_expresion: La operación o transformación que deseas aplicar a cada elemento.
+item: La variable temporal que toma el valor de cada elemento del iterable en cada paso.
+iterable: El iterable que estás recorriendo.
+Ejemplo:
+Crear una lista de los cuadrados de los números de 1 a 5:
+
+python
+Copiar código
+numeros = [1, 2, 3, 4, 5]
+cuadrados = [x ** 2 for x in numeros]
+print(cuadrados)  # Salida: [1, 4, 9, 16, 25]
+Filtrar y crear una lista con solo los números pares:
+
+python
+Copiar código
+numeros = [1, 2, 3, 4, 5, 6]
+pares = [x for x in numeros if x % 2 == 0]
+print(pares)  # Salida: [2, 4, 6]
+List comprehension también admite condiciones (if) para filtrar elementos del iterable, y puedes anidar expresiones para crear estructuras más complejas.
+
+Ejemplo con múltiples condiciones:
+python
+Copiar código
+numeros = [1, 2, 3, 4, 5, 6]
+resultado = [x ** 2 for x in numeros if x % 2 == 0]
+print(resultado)  # Salida: [4, 16, 36]
+En este caso, la lista de salida contiene los cuadrados de los números pares de la lista numeros.
+
+Resumen
+Funciones Lambda: Son funciones pequeñas y anónimas, ideales para operaciones simples y rápidas.
+map(): Aplica una función a cada elemento de un iterable, generando un nuevo iterable con los resultados.
+filter(): Filtra los elementos de un iterable basándose en una condición booleana definida por una función.
+reduce(): Aplica una función de manera acumulativa a los elementos de un iterable, reduciéndolos a un único valor.
+List Comprehension: Es una forma compacta y eficiente de crear listas, que permite aplicar una expresión o filtro a los elementos de un iterable.
+Estas herramientas son fundamentales para escribir código limpio, conciso y eficiente en Python, especialmente cuando trabajas con colecciones de datos.
+
+
+
+.TXT
+
+1. Abrir un archivo en Python
+El primer paso para trabajar con un archivo de texto es abrirlo. Para abrir un archivo, usamos la función open() de Python, que toma dos parámetros principales:
+
+El nombre del archivo (con su ruta, si no está en el mismo directorio).
+El modo de apertura del archivo (si solo se va a leer, si se va a escribir, etc.).
+Sintaxis básica:
+python
+Copiar código
+archivo = open('nombre_archivo.txt', 'modo')
+2. Modos de apertura de archivos
+Cuando abres un archivo con open(), debes especificar el modo en el que deseas trabajar con el archivo. Los modos más comunes son:
+
+'r': Modo de lectura. Abre el archivo para leerlo. Si el archivo no existe, se generará un error.
+'w': Modo de escritura. Abre el archivo para escribir en él. Si el archivo ya existe, se sobrescribirá. Si no existe, se creará un nuevo archivo.
+'a': Modo de anexado. Abre el archivo para agregar datos al final del archivo. Si el archivo no existe, se crea uno nuevo.
+'x': Modo exclusivo de creación. Abre el archivo para crear un nuevo archivo. Si el archivo ya existe, se generará un error.
+'b': Modo binario. Usado para leer o escribir archivos binarios (no es necesario para archivos de texto, pero se puede combinar con otros modos como 'rb' o 'wb').
+'t': Modo de texto. Es el modo predeterminado, usado para archivos de texto.
+Ejemplos de apertura de archivos:
+python
+Copiar código
+# Abrir un archivo para leer
+archivo = open('mi_archivo.txt', 'r')
+
+# Abrir un archivo para escribir (sobrescribe si existe)
+archivo = open('mi_archivo.txt', 'w')
+
+# Abrir un archivo para agregar contenido al final
+archivo = open('mi_archivo.txt', 'a')
+3. Leer un archivo
+Una vez que el archivo está abierto en modo lectura ('r'), puedes leer su contenido de varias maneras:
+
+1. Leer todo el contenido de una vez:
+python
+Copiar código
+archivo = open('mi_archivo.txt', 'r')
+contenido = archivo.read()
+print(contenido)
+archivo.close()
+read(): Lee todo el contenido del archivo y lo devuelve como una cadena de texto.
+2. Leer línea por línea:
+python
+Copiar código
+archivo = open('mi_archivo.txt', 'r')
+for linea in archivo:
+    print(linea, end='')  # `end=''` evita agregar una nueva línea extra
+archivo.close()
+Usar un bucle for para iterar sobre las líneas del archivo es una forma eficiente de leer archivo línea por línea.
+3. Leer una línea a la vez:
+python
+Copiar código
+archivo = open('mi_archivo.txt', 'r')
+linea = archivo.readline()
+while linea:
+    print(linea, end='')
+    linea = archivo.readline()  # Lee la siguiente línea
+archivo.close()
+readline(): Lee una línea del archivo a la vez. Si no hay más líneas, devuelve una cadena vacía.
+4. Leer todas las líneas como una lista:
+python
+Copiar código
+archivo = open('mi_archivo.txt', 'r')
+lineas = archivo.readlines()
+print(lineas)
+archivo.close()
+readlines(): Lee todas las líneas del archivo y las devuelve como una lista, donde cada elemento es una línea del archivo.
+4. Escribir en un archivo
+Para escribir en un archivo, usamos los modos 'w', 'a' o 'x'.
+
+1. Sobrescribir o crear un archivo con w:
+python
+Copiar código
+archivo = open('mi_archivo.txt', 'w')
+archivo.write("Este es un nuevo archivo.\n")
+archivo.write("Agregamos una segunda línea.\n")
+archivo.close()
+write(): Escribe una cadena en el archivo. Si el archivo ya existe, se sobrescribe.
+2. Añadir contenido con a:
+python
+Copiar código
+archivo = open('mi_archivo.txt', 'a')
+archivo.write("Esta es una línea adicional al final del archivo.\n")
+archivo.close()
+a: Usar el modo de anexado permite agregar contenido al final del archivo sin sobrescribir lo que ya contiene.
+3. Escribir múltiples líneas con writelines():
+python
+Copiar código
+lineas = ["Primera línea\n", "Segunda línea\n", "Tercera línea\n"]
+archivo = open('mi_archivo.txt', 'w')
+archivo.writelines(lineas)
+archivo.close()
+writelines(): Permite escribir una lista de cadenas al archivo, cada una representando una línea.
+5. Cierre del archivo
+Es muy importante cerrar el archivo después de terminar de trabajar con él, ya sea para lectura o escritura. Esto asegura que los cambios se guarden correctamente y que el archivo no quede bloqueado para otros procesos.
+
+python
+Copiar código
+archivo.close()
+Aunque es recomendable cerrar los archivos explícitamente con close(), también puedes usar una sentencia with que gestiona automáticamente el cierre del archivo, incluso si ocurre un error:
+
+Ejemplo con with:
+python
+Copiar código
+with open('mi_archivo.txt', 'r') as archivo:
+    contenido = archivo.read()
+    print(contenido)
+# No necesitas cerrar el archivo, se cierra automáticamente al salir del bloque `with`
+6. Manejo de excepciones
+Cuando trabajas con archivos, es importante manejar posibles errores, como la falta de permisos o la ausencia del archivo. Para esto, puedes usar try y except.
+
+Ejemplo con manejo de excepciones:
+python
+Copiar código
+try:
+    archivo = open('mi_archivo.txt', 'r')
+    contenido = archivo.read()
+    print(contenido)
+except FileNotFoundError:
+    print("El archivo no existe.")
+except IOError:
+    print("Hubo un problema al intentar abrir el archivo.")
+finally:
+    archivo.close()  # Aseguramos que el archivo se cierre
+7. Resumen de operaciones comunes con archivos .txt en Python
+Operación	Código
+Abrir archivo en modo lectura	archivo = open('archivo.txt', 'r')
+Leer todo el contenido	contenido = archivo.read()
+Leer línea por línea	for linea in archivo:
+Leer todas las líneas como lista	lineas = archivo.readlines()
+Escribir en el archivo (sobrescribir)	archivo = open('archivo.txt', 'w')
+archivo.write("Texto")
+Anexar contenido al final	archivo = open('archivo.txt', 'a')
+archivo.write("Texto")
+Escribir múltiples líneas	archivo.writelines([linea1, linea2])
+Cerrar archivo	archivo.close()
+Usar with para manejar archivos	with open('archivo.txt', 'r') as archivo:
+
+
+
+.CSV
+
+2. Leer archivos CSV en Python
+Para leer archivos CSV en Python, utilizamos el módulo csv. Este módulo ofrece varias funciones que facilitan la lectura y escritura de datos en este formato.
+
+2.1. Leer un archivo CSV con el módulo csv
+Para leer un archivo CSV, puedes usar la función csv.reader(), que lee el archivo y lo convierte en una lista de listas, donde cada lista interna representa una fila del archivo.
+
+Ejemplo:
+python
+Copiar código
+import csv
+
+# Abrimos el archivo CSV en modo lectura
+with open('archivo.csv', 'r') as archivo:
+    lector = csv.reader(archivo)
+    
+    # Iteramos sobre cada fila del archivo CSV
+    for fila in lector:
+        print(fila)
+Explicación:
+
+csv.reader(archivo): Crea un lector que se encarga de interpretar las líneas del archivo CSV y convertirlas en listas.
+for fila in lector: Itera sobre cada fila del archivo. Cada fila es una lista que contiene los valores de esa fila, separados por comas.
+Salida:
+
+css
+Copiar código
+['Nombre', 'Edad', 'Ciudad']
+['Juan', '25', 'Madrid']
+['Ana', '30', 'Barcelona']
+['Luis', '22', 'Sevilla']
+2.2. Leer un archivo CSV con encabezado (como diccionario)
+Si tienes un archivo CSV con encabezados en la primera fila y prefieres trabajar con los datos como diccionarios, puedes usar csv.DictReader(). Esta función convierte cada fila en un diccionario, utilizando los valores de la primera fila como las claves del diccionario.
+
+Ejemplo:
+python
+Copiar código
+import csv
+
+# Abrimos el archivo CSV en modo lectura
+with open('archivo.csv', 'r') as archivo:
+    lector = csv.DictReader(archivo)
+    
+    # Iteramos sobre cada fila (que es un diccionario)
+    for fila in lector:
+        print(fila)
+Explicación:
+
+csv.DictReader(archivo): Lee el archivo CSV y usa la primera fila como claves para crear un diccionario para cada fila siguiente.
+Salida:
+
+arduino
+Copiar código
+{'Nombre': 'Juan', 'Edad': '25', 'Ciudad': 'Madrid'}
+{'Nombre': 'Ana', 'Edad': '30', 'Ciudad': 'Barcelona'}
+{'Nombre': 'Luis', 'Edad': '22', 'Ciudad': 'Sevilla'}
+3. Escribir archivos CSV en Python
+Para escribir en un archivo CSV, usamos csv.writer() o csv.DictWriter() (si estamos trabajando con diccionarios). A continuación, te explico cómo escribir usando ambos métodos.
+
+3.1. Escribir con csv.writer()
+Si quieres escribir datos en formato CSV sin usar diccionarios, puedes usar csv.writer(). Este escribe una fila a la vez.
+
+Ejemplo:
+python
+Copiar código
+import csv
+
+# Abrimos el archivo CSV en modo escritura
+with open('nuevo_archivo.csv', 'w', newline='') as archivo:
+    escritor = csv.writer(archivo)
+    
+    # Escribimos los encabezados
+    escritor.writerow(['Nombre', 'Edad', 'Ciudad'])
+    
+    # Escribimos los datos
+    escritor.writerow(['Juan', '25', 'Madrid'])
+    escritor.writerow(['Ana', '30', 'Barcelona'])
+    escritor.writerow(['Luis', '22', 'Sevilla'])
+Explicación:
+
+csv.writer(archivo): Crea un escritor que te permite escribir en el archivo CSV.
+escritor.writerow([...]): Escribe una fila de datos en el archivo.
+El archivo nuevo_archivo.csv resultante tendrá el siguiente contenido:
+
+Copiar código
+Nombre,Edad,Ciudad
+Juan,25,Madrid
+Ana,30,Barcelona
+Luis,22,Sevilla
+3.2. Escribir con csv.DictWriter()
+Si trabajas con diccionarios y deseas escribir un archivo CSV donde las claves de los diccionarios son las columnas, puedes usar csv.DictWriter().
+
+Ejemplo:
+python
+Copiar código
+import csv
+
+# Definimos los encabezados (las claves de los diccionarios)
+campo_nombres = ['Nombre', 'Edad', 'Ciudad']
+
+# Abrimos el archivo CSV en modo escritura
+with open('nuevo_archivo_dict.csv', 'w', newline='') as archivo:
+    escritor = csv.DictWriter(archivo, fieldnames=campo_nombres)
+    
+    # Escribimos los encabezados
+    escritor.writeheader()
+    
+    # Escribimos los datos
+    escritor.writerow({'Nombre': 'Juan', 'Edad': '25', 'Ciudad': 'Madrid'})
+    escritor.writerow({'Nombre': 'Ana', 'Edad': '30', 'Ciudad': 'Barcelona'})
+    escritor.writerow({'Nombre': 'Luis', 'Edad': '22', 'Ciudad': 'Sevilla'})
+Explicación:
+
+csv.DictWriter(archivo, fieldnames=campo_nombres): Crea un escritor que escribe diccionarios en el archivo CSV. El parámetro fieldnames indica el orden de las columnas.
+escritor.writeheader(): Escribe la primera fila con los nombres de las columnas.
+escritor.writerow({...}): Escribe cada fila del archivo como un diccionario.
+El archivo nuevo_archivo_dict.csv resultante tendrá el siguiente contenido:
+
+Copiar código
+Nombre,Edad,Ciudad
+Juan,25,Madrid
+Ana,30,Barcelona
+Luis,22,Sevilla
+4. Opciones adicionales con archivos CSV
+4.1. Especificar delimitadores personalizados
+El módulo csv no solo admite comas como delimitadores. Si tu archivo CSV utiliza otro delimitador, como punto y coma (;), puedes especificarlo con el parámetro delimiter.
+
+Ejemplo:
+python
+Copiar código
+import csv
+
+# Leer un archivo CSV con punto y coma como delimitador
+with open('archivo_punto_y_coma.csv', 'r') as archivo:
+    lector = csv.reader(archivo, delimiter=';')
+    for fila in lector:
+        print(fila)
+4.2. Gestionar comillas y caracteres especiales
+El módulo csv también te permite manejar comillas dentro de los valores de las celdas. Puedes ajustar cómo se manejan las comillas utilizando el parámetro quotechar.
+
+Ejemplo:
+python
+Copiar código
+import csv
+
+# Leer un archivo CSV con comillas dobles
+with open('archivo_comillas.csv', 'r') as archivo:
+    lector = csv.reader(archivo, quotechar='"')
+    for fila in lector:
+        print(fila)
+5. Resumen de funciones y métodos útiles del módulo csv
+Función	Descripción
+csv.reader(archivo)	Lee un archivo CSV y devuelve un iterador de filas.
+csv.DictReader(archivo)	Lee un archivo CSV y convierte cada fila en un diccionario.
+csv.writer(archivo)	Escribe datos en un archivo CSV, fila por fila.
+csv.DictWriter(archivo, fieldnames)	Escribe diccionarios en un archivo CSV.
+csv.writerow([fila])	Escribe una fila de datos en el archivo CSV.
+csv.writeheader()	Escribe los encabezados en un archivo CSV (para DictWriter).
+
+
+
+
+
+.JSON
+
+2. Leer archivos JSON en Python
+Para leer un archivo JSON en Python, usamos la función json.load() que carga el contenido de un archivo JSON y lo convierte en una estructura de datos de Python (como diccionarios y listas).
+
+Ejemplo básico:
+python
+Copiar código
+import json
+
+# Abrimos el archivo JSON en modo lectura
+with open('archivo.json', 'r') as archivo:
+    datos = json.load(archivo)  # Deserializa el archivo JSON
+
+# Ahora 'datos' es un diccionario de Python
+print(datos)
+Explicación:
+
+json.load(archivo): Lee el contenido del archivo archivo.json y lo convierte en un objeto Python (generalmente un diccionario o una lista).
+with open(...): Usamos el bloque with para asegurarnos de que el archivo se cierre automáticamente después de su uso.
+Salida (dependiendo del contenido del archivo JSON):
+
+python
+Copiar código
+{'nombre': 'Juan', 'edad': 25, 'ciudad': 'Madrid', 'hobbies': ['futbol', 'viajar', 'leer']}
+3. Escribir en archivos JSON en Python
+Para escribir datos en un archivo JSON, usamos la función json.dump() que convierte un objeto Python en una cadena JSON y lo guarda en un archivo.
+
+Ejemplo básico:
+python
+Copiar código
+import json
+
+# Datos que queremos guardar en formato JSON
+datos = {
+    "nombre": "Ana",
+    "edad": 30,
+    "ciudad": "Barcelona",
+    "hobbies": ["correr", "leer", "cine"]
+}
+
+# Abrimos el archivo JSON en modo escritura
+with open('nuevo_archivo.json', 'w') as archivo:
+    json.dump(datos, archivo)  # Serializa y guarda los datos en el archivo
+Explicación:
+
+json.dump(datos, archivo): Convierte el objeto datos en una cadena JSON y lo guarda en el archivo nuevo_archivo.json.
+'w': Abre el archivo en modo de escritura. Si el archivo no existe, Python lo crea.
+El contenido del archivo nuevo_archivo.json será:
+
+json
+Copiar código
+{
+    "nombre": "Ana",
+    "edad": 30,
+    "ciudad": "Barcelona",
+    "hobbies": ["correr", "leer", "cine"]
+}
+Opciones adicionales al escribir archivos JSON
+Formato legible para humanos: Si quieres que el archivo JSON sea más legible (con saltos de línea y sangrías), puedes usar el parámetro indent de json.dump().
+
+python
+Copiar código
+import json
+
+datos = {
+    "nombre": "Ana",
+    "edad": 30,
+    "ciudad": "Barcelona",
+    "hobbies": ["correr", "leer", "cine"]
+}
+
+with open('nuevo_archivo.json', 'w') as archivo:
+    json.dump(datos, archivo, indent=4)  # Con indentación para mayor legibilidad
+Salida en el archivo nuevo_archivo.json:
+
+json
+Copiar código
+{
+    "nombre": "Ana",
+    "edad": 30,
+    "ciudad": "Barcelona",
+    "hobbies": [
+        "correr",
+        "leer",
+        "cine"
+    ]
+}
+Ordenar las claves: Si quieres que las claves del objeto JSON se ordenen alfabéticamente, puedes usar el parámetro sort_keys.
+
+python
+Copiar código
+with open('nuevo_archivo.json', 'w') as archivo:
+    json.dump(datos, archivo, indent=4, sort_keys=True)  # Ordena las claves
+Salida en el archivo nuevo_archivo.json:
+
+json
+Copiar código
+{
+    "ciudad": "Barcelona",
+    "edad": 30,
+    "hobbies": [
+        "correr",
+        "leer",
+        "cine"
+    ],
+    "nombre": "Ana"
+}
+4. Leer cadenas JSON directamente con json.loads()
+En ocasiones, tienes un archivo o una cadena JSON que ya está cargada como texto. Si es el caso, puedes usar la función json.loads() (que significa "load string") para convertir una cadena JSON en un objeto Python.
+
+Ejemplo:
+python
+Copiar código
+import json
+
+# Cadena JSON
+cadena_json = '{"nombre": "Luis", "edad": 28, "ciudad": "Sevilla"}'
+
+# Convertir la cadena JSON en un objeto Python (diccionario)
+datos = json.loads(cadena_json)
+
+print(datos)
+Salida:
+
+python
+Copiar código
+{'nombre': 'Luis', 'edad': 28, 'ciudad': 'Sevilla'}
+5. Convertir un objeto Python a una cadena JSON con json.dumps()
+Si tienes un objeto Python (como un diccionario o una lista) y deseas convertirlo en una cadena JSON (por ejemplo, para enviarlo a través de una red o para guardarlo en una base de datos), puedes usar la función json.dumps().
+
+Ejemplo:
+python
+Copiar código
+import json
+
+# Objeto Python (diccionario)
+datos = {
+    "nombre": "Carlos",
+    "edad": 35,
+    "ciudad": "Valencia"
+}
+
+# Convertir a una cadena JSON
+cadena_json = json.dumps(datos)
+
+print(cadena_json)
+Salida:
+
+json
+Copiar código
+{"nombre": "Carlos", "edad": 35, "ciudad": "Valencia"}
+6. Manejo de excepciones
+Es importante manejar excepciones cuando trabajas con archivos JSON, ya que los datos pueden no estar bien formateados o el archivo puede no existir.
+
+Ejemplo:
+python
+Copiar código
+import json
+
+try:
+    with open('archivo.json', 'r') as archivo:
+        datos = json.load(archivo)
+except FileNotFoundError:
+    print("El archivo no existe.")
+except json.JSONDecodeError:
+    print("Hubo un error al decodificar el archivo JSON.")
+7. Resumen de las funciones del módulo json
+Función	Descripción
+json.load(archivo)	Lee un archivo JSON y lo convierte en un objeto Python.
+json.loads(cadena_json)	Convierte una cadena JSON en un objeto Python.
+json.dump(obj, archivo)	Convierte un objeto Python en JSON y lo escribe en un archivo.
+json.dumps(obj)	Convierte un objeto Python en una cadena JSON.
+json.JSONDecodeError	Excepción que se lanza cuando hay un error al decodificar JSON.
