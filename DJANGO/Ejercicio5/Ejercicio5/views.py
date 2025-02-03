@@ -1,5 +1,7 @@
+from django.http import HttpResponse
 from django.shortcuts import render
 from Ejercicio5.models.Lenguaje import Plantilla 
+from Ejercicio5.forms import FormularioLenguaje
 
 def progra(request):
     x = [  
@@ -11,4 +13,24 @@ def progra(request):
     ]
     
     return render(request, 'lenguajes.html', {'plantillas': x})  
+
+def inicio(request):
+    if request.method == "POST":
+        miFrm = FormularioLenguaje(request.POST)
+        if miFrm.is_valid():
+            dicc = miFrm.cleaned_data
+            lenguajes_seleccionados = dicc['lenguajes']
+            if len(lenguajes_seleccionados) == 0:
+                mensaje = "Espabila y ponte a estudiar ya"
+            elif len(lenguajes_seleccionados) == 1:
+                mensaje = "Estás empezando...."
+            else:
+                mensaje = "Sabes muchos lenguajes: " + ", ".join(lenguajes_seleccionados)
+            dicc['mensaje'] = mensaje
+            
+            return render(request, "resultado.html", dicc)
+    else:
+        miFrm = FormularioLenguaje()
+
+    return render(request, "index.html", {"form": miFrm})
 
