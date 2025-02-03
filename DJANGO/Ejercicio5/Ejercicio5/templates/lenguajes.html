@@ -1,0 +1,8 @@
+{% extends 'index.html' %} {% block lenguajes %} 
+{% for item in plantillas %}
+Nombre: {{item.nombre}}<br>
+Año: {{item.año}}<br>
+Descripcion: {{item.descripcion}}<br>
+-----------<br>
+{% endfor %}
+{% endblock %}
