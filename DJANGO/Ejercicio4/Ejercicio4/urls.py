@@ -19,5 +19,6 @@ from django.urls import path
 from Ejercicio4.views import progra
 
 urlpatterns = [
-    path('admin/', progra,name="progra"),
+    path('admin/', admin.site.urls),
+    path('progra/', progra,name="progra"),
 ]
