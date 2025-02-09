@@ -1,0 +1,8 @@
+{% extends 'index.html' %} {% block asignaturas %} 
+{% for item in asignaturas %}
+Nombre: {{item.nombre}}<br>
+Profesor: {{item.profesor}}<br>
+Numero de Horas: {{item.numHoras}}<br>
+-----------<br>
+{% endfor %}
+{% endblock %}
