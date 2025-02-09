@@ -1,0 +1,11 @@
+{% extends 'index.html' %}  
+{% load static %}
+{% block asignaturas %}
+    {% for item in asignaturas %}
+        <h3>{{ item.nombre }}</h3>
+        <p>Profesor: {{ item.profesor }}</p>
+        <p>Número de Horas: {{ item.numHoras }}</p>
+        <img src="{% static item.img %}">
+        <hr>
+    {% endfor %}
+{% endblock %}
