@@ -13,13 +13,11 @@ def form(request):
             elif len(lenguajes_seleccionados) == 1:
                 mensaje = nombre + " deberias buscar mas aficiones aparte de " + "".join(lenguajes_seleccionados)
             elif len(lenguajes_seleccionados) == 5:
-                mensaje = nombre + " Creo que tienes demasiadas aficiones "
+                mensaje = nombre + " creo que tienes demasiadas aficiones "
             else:
-                mensaje = nombre + " Sabes estos lenguajes: " + ", ".join(lenguajes_seleccionados)
+                mensaje = nombre + " tienes estas aficiones: " + ", ".join(lenguajes_seleccionados)
             dicc['mensaje'] = mensaje
 
-            
-            
             return render(request, "formulario.html", dicc)
     else:
         miFrm = Formulario()
